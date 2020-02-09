@@ -4,16 +4,17 @@
       .widget.widget-default.widget-carousel
 
     .col-md-3
-      .widget.widget-default.widget-item-icon
+      .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/companies';"}
         .widget-item-left
           %span.fa.fa-envelope
         .widget-data
-          .widget-int.num-count 20
-          .widget-title New messages
-          .widget-subtitle In your mailbox
+          .widget-int.num-count= Company.count
+          .widget-title= Company.model_name.human
+          .widget-subtitle
         .widget-controls
           = link_to "javascript:void(0);", class: 'widget-control-right widget-remove', data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
             %span.fa.fa-times
+
     .col-md-3
       .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/users';"}
         .widget-item-left
@@ -21,10 +22,11 @@
         .widget-data
           .widget-int.num-count= User.count
           .widget-title= User.model_name.human
-          .widget-subtitle On your website
+          .widget-subtitle
         .widget-controls
           = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
             %span.fa.fa-times
+
     .col-md-3
       .widget.widget-info.widget-padding-sm
         .widget-big-int.plugin-clock
@@ -46,6 +48,42 @@
           .col
             = link_to "javascript:void(0);" do
               %span.fa.fa-calendar
+
+    .col-md-3
+      .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/provinces';"}
+        .widget-item-left
+          %span.fa.fa-envelope
+        .widget-data
+          .widget-int.num-count= Province.count
+          .widget-title= Province.model_name.human
+          .widget-subtitle
+        .widget-controls
+          = link_to "javascript:void(0);", class: 'widget-control-right widget-remove', data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+            %span.fa.fa-times
+
+    .col-md-3
+      .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/cities';"}
+        .widget-item-left
+          %span.fa.fa-users
+        .widget-data
+          .widget-int.num-count= City.count
+          .widget-title= City.model_name.human
+          .widget-subtitle
+        .widget-controls
+          = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+            %span.fa.fa-times
+
+    .col-md-3
+      .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/districts';"}
+        .widget-item-left
+          %span.fa.fa-users
+        .widget-data
+          .widget-int.num-count= District.count
+          .widget-title= District.model_name.human
+          .widget-subtitle
+        .widget-controls
+          = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+            %span.fa.fa-times
 
   .row
     .col-md-4

@@ -124,3 +124,21 @@
             = link_to product_units_path do
               %span.fa.fa-tags.fa-fw
               #{t('menu.product_units')}
+
+      %li.xn-openable{class: "#{'active' if ['provinces', 'cities', 'districts'].include?(controller_name)}"}
+        = link_to 'javascript:void(0);' do
+          %span.fa.fa-cogs.fa-fw
+          %span.xn-text= t('menu.regions')
+        %ul
+          %li{class: "#{'active' if ['provinces'].include?(controller_name)}"}
+            = link_to provinces_path do
+              %span.fa.fa-cog.fa-fw
+              #{t('menu.provinces')}
+          %li{class: "#{'active' if ['cities'].include?(controller_name)}"}
+            = link_to cities_path do
+              %span.fa.fa-tags.fa-fw
+              #{t('menu.cities')}
+          %li{class: "#{'active' if ['districts'].include?(controller_name)}"}
+            = link_to districts_path do
+              %span.fa.fa-tags.fa-fw
+              #{t('menu.districts')}

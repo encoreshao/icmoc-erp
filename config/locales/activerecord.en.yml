@@ -65,3 +65,21 @@ en:
         last_sign_in_ip: Last Sign In IP
         subject: Subject
         roles: Roles
+      province:
+        name: Name
+        name_en: PinYin
+        name_abbr: Abbr
+        code: Code
+        cities_count: Cities Count
+      city:
+        name: Name
+        name_en: PinYin
+        name_abbr: Abbr
+        code: Code
+        level: Level
+        districts_count: Districts Count
+      district:
+        name: Name
+        name_en: PinYin
+        name_abbr: Abbr
+        code: Code
