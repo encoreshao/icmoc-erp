@@ -1,0 +1,10 @@
+.panel.panel-grey
+  .panel-heading
+    = collection.name.safe_constantize.model_name.human
+    %span
+      = link_to t('actions.new'), new_resource_path
+
+  .panel-body
+    .col-md-12
+      .col-md-6
+        = render 'form', url: collection_path

@@ -1,0 +1,117 @@
+/* backedn form Special style */
+
+.h-form {
+  margin-bottom: 5px;
+}
+
+.h-form .col-md-9 input,
+.h-form .col-md-9 textarea,
+.h-form .col-md-9 select,
+.h-form .col-md-9 div.select {
+  width: 70%;
+  float: left;
+  margin-right: 5px;
+}
+
+.edit-content {
+  padding: 30px 0px;
+}
+
+.border-wrapper {
+  border: 1px solid #C0C0C0;
+}
+
+fieldset {
+  border: 1px solid #e4e4e4;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+legend {
+  color: #484848;
+}
+
+.box {
+  padding: 6px;
+  margin-bottom: 10px;
+  background-color: #f6f6f6;
+  color: #505050;
+  line-height: 1.5em;
+  border: 1px solid #e4e4e4;
+  word-wrap: break-word;
+}
+
+label.floating {
+  font-weight: normal;
+  margin-left: 0px;
+  text-align: left;
+  width: 270px;
+}
+
+span.cm-checkbox {
+  min-width: 100px;
+  display: inline-block;
+}
+
+.flash-notice {
+  text-align: center;
+  position: fixed;
+  float: right;
+  right: 20px;
+  top: 20px;
+  background-color: rgba(253, 249, 249, .5);
+  padding: 10px 40px;
+  border-radius: 5px;
+}
+
+.flash-notice .warn {
+  font-size: 1.2em;
+  color: #544545;
+  margin-bottom: 0px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.edit_role .col-sm-3,
+.new_role .col-sm-3 {
+  width: 10%;
+}
+
+.col-md-9 .flash-notice {
+  text-align: left;
+}
+
+.col-md-9 h3 {
+  font-size: 1.5em;
+  margin-bottom: 0px;
+}
+
+#permissions legend {
+  font-size: 1.3em;
+  margin-bottom: 5px;
+}
+
+.users .panel.panel-default {
+  min-height: 283px;
+}
+
+.profile-link {
+  background-color: #262a33;
+  width: auto !important;
+}
+
+.sm-input {
+  width: 160px !important;
+}
+
+.text-center .img-responsive {
+  margin: auto;
+}
+
+.radio_buttons span.radio {
+  display: inline-block;
+  width: auto;
+  margin-right: 10px;
+}

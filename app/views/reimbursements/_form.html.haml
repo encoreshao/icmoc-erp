@@ -1,0 +1,40 @@
+= simple_nested_form_for resource, url: url do |f|
+  = render 'form_header'
+  = f.input :project_id, collection: Project.numbers, prompt: false
+
+  %fieldset
+    %episodes
+      - if resource.new_record? || resource.episodes.empty?
+        = f.simple_fields_for :episodes, resource.episodes.build do |p|
+          .fields-group.clearfix
+            = p.input :activity_date, as: :date, html5: true
+            = p.input :usage, as: :radio_buttons, label_html: { class: 'col-sm-3' }
+            = p.input :amount, as: :string, hint: 'RMB', placeholder: '0.0'
+            = p.input :count, as: :select, collection: (1..20).to_a, prompt: true
+            = p.input :description, placeholder: t('tips.desc')
+            .form-group.h-form
+              .col-sm-3
+              .col-md-9= p.link_to_remove t('actions.remove'), class: 'btn btn-primary'
+      - else
+        - resource.episodes.each do |episode|
+          = f.simple_fields_for :episodes, episode do |p|
+            .fields-group.clearfix
+              = p.input :activity_date, as: :date, html5: true, input_html: { value: episode.activity_date }
+              = p.input :usage, as: :radio_buttons, label_html: { class: 'col-sm-3' }
+              = p.input :amount, as: :string, required: false, hint: 'RMB', placeholder: '0.0'
+              = p.input :count, as: :select, collection: (1..20).to_a, prompt: true
+              = p.input :description, placeholder: t('tips.desc')
+              .form-group.h-form
+                .col-sm-3
+                .col-md-9= p.link_to_remove t('actions.remove'), class: 'btn btn-primary'
+
+      .control-group
+        = f.link_to_add t('actions.add'), :episodes, class: 'btn btn-info'
+
+  %fieldset
+    .form-group.h-form{style: 'margin-top: 20px'}
+      .col-sm-3
+        = hidden_field_tag :redirect_url, params[:redirect_url]
+      .col-md-9
+        = f.submit t('actions.save'), class: 'btn btn-default btn-info', style: 'width: 60px;'
+        = f.button :button, t('actions.reset'), type: 'reset', class: 'btn btn-default btn-warning'

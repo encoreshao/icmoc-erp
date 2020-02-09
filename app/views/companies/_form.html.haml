@@ -1,0 +1,28 @@
+= simple_form_for resource, url: url, wrapper: :h_form do |f|
+  = render 'form_header'
+  = f.input :name, required: true
+  = f.input :industry
+  = f.input :nature_of_business
+  = f.input :legal_person
+  = f.input :bank_address
+  = f.input :bank_account
+  = f.input :tax_no
+  = f.input :website
+  - if !resource.new_record? && resource.try(:logo).present?
+    .form-group.string.optional
+      %label.optional.col-sm-3.control-label
+        = Company.human_attribute_name(:logo)
+      .col-md-9
+        %img.img-responsive{ src: resource.logo.url }
+  = f.input :logo, type: 'file', label: false, style: 'margin-right: 16px;'
+  = f.input :telephone
+  = f.input :contact_person
+  = f.input :country, as: :string
+  = f.input :city
+  = f.input :address
+  = f.input :fax
+  = f.input :postcode
+  = f.input :introduction
+  = f.input :description
+
+  = render partial: 'form_submit', locals: { f: f }

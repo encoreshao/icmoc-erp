@@ -1,0 +1,8 @@
+.form-bg
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    %h2 Forgot your password?
+    %p= devise_error_messages!
+    %p
+      Email
+      = f.email_field :email, autofocus: true
+    = f.submit "Send"

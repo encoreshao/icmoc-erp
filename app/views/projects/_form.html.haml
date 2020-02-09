@@ -1,0 +1,9 @@
+= simple_form_for resource, url: url, wrapper: :h_form do |f|
+  = render 'form_header'
+  = f.input :name, required: true
+  = f.input :sale_id
+  = f.input :pm_user_id, collection: User.members, prompt: false, required: true
+  = f.input :number
+  = f.input :budget
+
+  = render partial: 'form_submit', locals: { f: f }

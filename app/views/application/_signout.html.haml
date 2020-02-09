@@ -1,0 +1,14 @@
+#mb-signout.message-box.animated.fadeIn{data: {sound: 'alert'}}
+  .mb-container
+    .mb-middle
+      .mb-title
+        %span.fa.fa-sign-out
+        #{t("tips.signout")}
+        ?
+      .mb-content
+        %p= t("pages.logout.tip1")
+        %p= t("pages.logout.tip2")
+      .mb-footer
+        .pull-right
+          = link_to t('actions.sure'), destroy_user_session_path, class: 'btn btn-success btn-lg', data: {method: :DELETE}
+          = button_tag t('actions.cancel'), class: 'btn btn-default btn-lg mb-control-close'

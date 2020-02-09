@@ -1,0 +1,19 @@
+= simple_form_for resource, url: url, wrapper: :h_form do |f|
+  = render 'form_header'
+  = f.input :company_id, collection: Company.customers, prompt: false, required: true
+  = f.input :order_type, collection: Sale.order_type.values, prompt: false, required: true
+  = f.input :contact_no
+  = f.input :name, required: true
+  = f.input :type_name, collection: Sale.type_name.values, prompt: false, required: true
+  = f.input :owner_id, collection: User.members, prompt: false, required: true
+  = f.input :payment_mode
+  = f.input :money
+  = f.input :tax
+  = f.input :freight_charge
+  = f.input :delivery_time, as: :date, html5: true
+  = f.input :delivery_place
+  = f.input :number
+  = f.input :unit
+  = f.input :delivery_content
+
+  = render partial: 'form_submit', locals: { f: f }

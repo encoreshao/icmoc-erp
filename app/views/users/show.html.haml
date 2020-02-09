@@ -1,0 +1,53 @@
+.page-content-wrap
+  #tab-general
+    .row.mbl
+      .col-lg-12
+        .col-md-12
+          #area-chart-spline{style: 'width: 100%; height: 300px; display: none;'}
+      .col-lg-12
+        .row
+          .col-md-12
+            .row.mtl.edit-content.border-wrapper
+              .col-md-3
+                .form-group
+                  .text-center.mbl
+                    - image_url = '/assets/icons/default-user.png'
+                    - image_url = resource.detail.avatar.url unless resource.detail.avatar.blank?
+
+                    %img.img-responsive{ src: image_url }
+
+              .col-md-9
+                %h3 #{resource.detail.try(:name)} 的个人简介
+                %br
+                #tab-edit.tab-pane.fade.in.active
+                  %table.table.table-bordered.table-hover
+                    %tr
+                      %td
+                        %strong= User.human_attribute_name(:email)
+                      %td= resource.email
+                    %tr
+                      %td
+                        %strong= UserDetail.human_attribute_name(:name)
+                      %td= resource.detail.try(:name)
+                    %tr
+                      %td
+                        %strong= User.human_attribute_name(:subject)
+                      %td= resource.subject_text
+                    %tr
+                      %td
+                        %strong= User.human_attribute_name(:roles)
+                      %td= resource.role_names
+                    %tr
+                      %td
+                        %strong= UserDetail.human_attribute_name(:position)
+                      %td= resource.detail.try(:position)
+                    %tr
+                      %td
+                        %strong= UserDetail.human_attribute_name(:age)
+                      %td= resource.detail.try(:age)
+                    %tr
+                      %td
+                        %strong= UserDetail.human_attribute_name(:hiredate)
+                      %td= resource.detail.try(:hiredate)
+                    %tr
+                      %td{colspan: 2}= link_to t('actions.edit'), edit_user_path(resource), class: 'btn btn-info'

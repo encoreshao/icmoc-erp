@@ -1,0 +1,34 @@
+.page-content-wrap
+  .row
+    .col-md-12
+      .panel.panel-default
+        .panel-heading.ui-draggable-handle
+          %h3.panel-title
+            = collection.name.safe_constantize.model_name.human
+            - if Setting.count == 0
+              %span
+                = link_to t('actions.new'), new_resource_path
+          %ul.panel-controls
+            %li
+              = link_to 'javascript:void(0);', class: 'panel-collapse' do
+                %span.fa.fa-angle-down
+            %li
+              = link_to '', class: 'panel-refresh' do
+                %span.fa.fa-refresh
+        .panel-body
+          %table.table.table-bordered
+            %thead
+              %tr{role: 'row'}
+                %th= collection.name.safe_constantize.human_attribute_name(:depot_alarm_value)
+                %th= collection.name.safe_constantize.human_attribute_name(:project_payment_mode)
+                %th= collection.name.safe_constantize.human_attribute_name(:purchase_payment_mode)
+                %th{class: 'span2'}
+            %tbody
+              - collection.each do |resource|
+                %tr
+                  %td= resource.depot_alarm_value
+                  %td= resource.project_payment_mode_text
+                  %td= resource.purchase_payment_mode_text
+                  %td= link_to t('actions.edit'), edit_resource_path(resource), class: 'btn btn-primary'
+
+          = paginate collection

@@ -1,0 +1,38 @@
+.page-content-wrap
+  .row
+    .col-md-12
+      .panel.panel-default
+        .panel-heading.ui-draggable-handle
+          %h3.panel-title
+            = "#{resource.user.try(:display_name)}#{t('tips.de')}个人#{collection.name.safe_constantize.model_name.human}"
+            %span
+              = link_to t('actions.back'), :back
+          %ul.panel-controls
+            %li
+              = link_to 'javascript:void(0);', class: 'panel-collapse' do
+                %span.fa.fa-angle-down
+        .panel-body
+          %table.table.table-bordered
+            %tbody
+              %tr
+                %th{colspan: 4}= resource.detail_submit_date
+              %tr
+                %th= Episode.human_attribute_name(:activity_date)
+                %th= Episode.human_attribute_name(:amount)
+                %th= Episode.human_attribute_name(:count)
+                %th= Episode.human_attribute_name(:usage)
+              - resource.episodes.each do |episode|
+                %tr
+                  %td= episode.activity_date
+                  %td= episode.amount
+                  %td= episode.count
+                  %td= episode.usage_text
+              %tr
+                %td
+                  %strong= collection.name.safe_constantize.human_attribute_name(:episodes_amount)
+                %td= resource.episodes.sum(:amount)
+                %td
+                %td
+              %tr
+                %td{colspan: 4}
+                  = link_to t('actions.edit'), edit_reimbursement_path(resource), class: 'btn btn-info'

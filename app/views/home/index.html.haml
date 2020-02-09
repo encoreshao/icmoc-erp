@@ -1,0 +1,105 @@
+.page-content-wrap
+  .row
+    .col-md-3
+      .widget.widget-default.widget-carousel
+
+    .col-md-3
+      .widget.widget-default.widget-item-icon
+        .widget-item-left
+          %span.fa.fa-envelope
+        .widget-data
+          .widget-int.num-count 20
+          .widget-title New messages
+          .widget-subtitle In your mailbox
+        .widget-controls
+          = link_to "javascript:void(0);", class: 'widget-control-right widget-remove', data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+            %span.fa.fa-times
+    .col-md-3
+      .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/users';"}
+        .widget-item-left
+          %span.fa.fa-users
+        .widget-data
+          .widget-int.num-count= User.count
+          .widget-title= User.model_name.human
+          .widget-subtitle On your website
+        .widget-controls
+          = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+            %span.fa.fa-times
+    .col-md-3
+      .widget.widget-info.widget-padding-sm
+        .widget-big-int.plugin-clock
+          = Time.now.strftime("%H")
+          %span
+          = Time.now.strftime("%m")
+        .widget-subtitle.plugin-date
+          = Time.now.strftime("%A, %B %d, %Y")
+        .widget-controls
+          = link_to "javascript:void(0);", class: 'widget-control-right widget-remove', data: {toggle: 'tooltip', placement: 'left'}, title: 'Remove Widget' do
+            %span.fa.fa-times
+        .widget-buttons.widget-c3
+          .col
+            = link_to "javascript:void(0);" do
+              %span.fa.fa-clock-o
+          .col
+            = link_to "javascript:void(0);" do
+              %span.fa.fa-bell
+          .col
+            = link_to "javascript:void(0);" do
+              %span.fa.fa-calendar
+
+  .row
+    .col-md-4
+      .panel.panel-default
+        .panel-heading.ui-draggable-handle
+          .panel-title-box
+            %h3= User.model_name.human
+            %span
+          %ul.panel-controls{style: 'margin-top: 2px;'}
+            %li
+              = link_to "javascript:void(0);", class: 'panel-fullscreen' do
+                %span.fa.fa-expand
+        .panel-body.padding-0
+          .chart-holder
+
+    .col-md-4
+      .panel.panel-default
+        .panel-heading.ui-draggable-handle
+          .panel-title-box
+            %h3= Company.model_name.human
+            %span
+          %ul.panel-controls{style: 'margin-top: 2px;'}
+            %li
+              = link_to "javascript:void(0);", class: 'panel-fullscreen' do
+                %span.fa.fa-expand
+
+        .panel-body.padding-0
+          .chart-holder
+
+    .col-md-4
+      .panel.panel-default
+        .panel-heading.ui-draggable-handle
+          .panel-title-box
+            %h3= Project.model_name.human
+            %span
+              = link_to "#{I18n.t("actions.new")}#{Project.model_name.human}", new_project_path
+          %ul.panel-controls{style: 'margin-top: 2px;'}
+            %li
+              = link_to "javascript:void(0);", class: 'panel-fullscreen' do
+                %span.fa.fa-expand
+        .panel-body.panel-body-table
+          .table-responsive
+            %table.table.table-bordered.table-striped
+              %thead
+                %tr
+                  %th{width: '50%'} 项目名称
+                  %th{width: '20%'} 状态
+                  %th{width: '30%'} 是否关闭
+              %tbody
+                - Project.all.each do |project|
+                  %tr
+                    %td
+                      %strong= project.name
+                    %td
+                      %span.label.label-danger= project.sale.try(:state)
+                    %td
+                      %strong= project.is_closed? ? 'No' : 'Yes'

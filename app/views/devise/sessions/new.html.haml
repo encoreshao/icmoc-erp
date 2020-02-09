@@ -1,0 +1,26 @@
+.login-container.lightmode
+  .login-box.animated.fadeInDown
+    .login-logo
+      = t('full_title')
+    .login-body
+      .login-title
+        %strong
+          = t('tips.login_welcome')
+          ,
+        = t('tips.login_note')
+
+      = simple_form_for resource, as: resource_name, url: session_path(resource_name), wrapper: :horizontal_form, html: { autocomplete: 'off' } do |f|
+        = f.input :email, autofocus: true, required: true, placeholder: t('tips.email'), label: false
+        = f.input :password, required: true, placeholder: t('tips.password'), label: false
+        - if devise_mapping.rememberable?
+          = f.input :remember_me, as: :boolean, inline_label: t('tips.remember_me'), label: false
+
+        .form-group
+          .col-md-6
+          .col-md-6
+            = f.submit t('tips.signin'), class: 'btn btn-info btn-block'
+
+    .login-footer
+      .pull-right
+        &copy; #{Time.now.year} #{t('full_name')}
+        %em Beta

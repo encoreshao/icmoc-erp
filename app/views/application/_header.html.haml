@@ -1,0 +1,62 @@
+%ul.x-navigation.x-navigation-horizontal.x-navigation-panel
+  %li.xn-icon-button
+    = link_to 'javascript:void(0);', class: 'x-navigation-minimize' do
+      %span.fa.fa-dedent
+  %li.xn-search
+    %form{role: 'form'}
+      %input{ type: 'text', name: 'key', value: (params[:key] || nil), placeholder: t('actions.search'), class: "#{'active' unless params[:key].blank?}" }
+
+  %li.xn-icon-button.pull-right
+    = link_to 'javascript:void(0);', class: 'mb-control', data: {box: '#mb-signout'} do
+      %span.fa.fa-sign-out
+
+  %li.xn-icon-button.pull-right
+    = link_to 'javascript:void(0)' do
+      %span.fa.fa-comments
+    .informer.informer-danger 4
+    .panel.panel-primary.animated.zoomIn.xn-drop-left.xn-panel-dragging.ui-draggable
+      .panel-heading.ui-draggable-handle
+        %h3.panel-title
+        %span.fa.fa-comments
+        Message
+      .pull-right
+        %span.label.label-danger 4 new
+      .panel-body.list-group.list-group-contacts.scroll.mCustomScrollbar._mCS_2.mCS-autoHide{style: "200px"}
+        #mCSB_2.mCustomScrollBox.mCS-light.mCSB_vertical.mCSB_inside{tabindex: '0'}
+          #mCSB_2_container.mCSB_container
+        #mCSB_2_scrollbar_vertical.mCSB_scrollTools.mCSB_2_scrollbar.mCS-light.mCSB_scrollTools_vertical
+      .panel-footer.text-center
+        = link_to 'Show all messages', ''
+
+  %li.xn-icon-button.pull-right
+    = link_to 'javascript:void(0)' do
+      %span.fa.fa-tasks
+    .informer.informer-warning 3
+    .panel.panel-primary.animated.zoomIn.xn-drop-left.xn-panel-dragging.ui-draggable
+      .panel-heading.ui-draggable-handle
+        .panel-title
+          %span.fa.fa-tasks
+          Tasks
+        .pull-right
+          .label.label-warning 3 active
+      .panel-body.list-group.scroll.mCustomScrollbar._mCS_3.mCS-autoHide
+        #mCSB_3.mCustomScrollBox.mCS-light.mCSB_vertical.mCSB_inside
+          #mCSB_3_container.mCSB_container{style: 'position: relative; top: 0px; left: 0px;'}
+            = link_to '#', class: 'list-group-item' do
+              %strong Phasellus augue arcu, elementum
+            .progress.progress-small.progress-striped.active
+              .progress-bar.progress-bar-danger{role: 'progressbar', :'aria-valuenow' => 50, :'aria-valuemin' => 0, :'aria-valuemax' => 100, style: "width: 50%;"} 50%
+            %small.text-muted
+              John Doe, 25 Sep 2014 / 50%
+          #mCSB_3_scrollbar_vertical.mCSB_scrollTools.mCSB_3_scrollbar.mCS-light.mCSB_scrollTools_vertical
+            .mCSB_draggerContainer
+              #mCSB_3_dragger_vertical.mCSB_dragger{style: "position: absolute; min-height: 30px; top: 0px; display: block; height: 132px; max-height: 190px;", oncontextmenu: 'return false;'}
+                .mCSB_dragger_bar{style: 'line-height: 30px;'}
+              .mCSB_draggerRail
+      .panel-footer.text-center
+        = link_to 'Show all tasks', '#'
+
+  %li.pull-right
+    = link_to profile_users_path, class: 'profile-link' do
+      %span.fa.fa-user
+      = current_user.display_name

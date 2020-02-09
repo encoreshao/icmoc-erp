@@ -1,0 +1,57 @@
+.page-content-wrap
+  #tab-general
+    .row.mbl
+      .col-lg-12
+        .col-md-12
+          #area-chart-spline{style: 'width: 100%; height: 300px; display: none;'}
+      .col-lg-12
+        .row
+          .col-md-12
+            %h2= "{ #{current_user.detail.try(:name)} } 的个人简介"
+            .row.mtl.edit-content.border-wrapper
+              = simple_nested_form_for current_user, url: profile_users_path, method: :post, wrapper: :h_form do |f|
+                = f.simple_fields_for :detail, current_user.detail do |p|
+                  .col-md-3
+                    .form-group
+                      .text-center.mbl
+                        - image_url = '/assets/icons/default-user.png'
+                        - image_url = current_user.detail.avatar.url unless current_user.detail.try(:avatar).blank?
+                        %img.img-responsive{ src: image_url }
+                      %br
+
+                      .text-center.mbl
+                        %span.file-input.file-input-new
+                          .btn.btn-info.btn-file
+                            %i.fa.fa-folder-open-o
+                              &nbsp;
+                              上传 …
+                            = p.input :avatar, type: 'file', label: false, style: 'margin-right: 16px;'
+
+                    %table.table.table-hover
+                      %tr
+                        %td= User.human_attribute_name(:email)
+                        %td= current_user.email
+                      %tr
+                        %td= User.human_attribute_name(:subject)
+                        %td= current_user.subject
+                      %tr
+                        %td= UserDetail.human_attribute_name(:position)
+                        %td= current_user.detail.try(:position)
+                      %tr
+                        %td= User.human_attribute_name(:roles)
+                        %td= current_user.role_names
+
+                  .col-md-9
+                    #tab-edit.tab-pane.fade.in.active
+                      = p.input :name
+                      = p.input :age, as: :string
+                      = p.input :birthday, as: :date, html5: true
+                      = p.input :marriage, collection: UserDetail.marriage.values, prompt: true
+                      = p.input :birthplace
+                      = p.input :country, as: :string
+                      = p.input :nationality
+                      = p.input :id_card_no
+                      = p.input :contact_person
+                      = p.input :contact_phone
+
+                      = render partial: 'form_submit', locals: { f: f }

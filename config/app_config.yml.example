@@ -1,0 +1,8 @@
+development:
+  email: erp.com
+
+test:
+  email: erp.com
+
+production:
+  email: erp.com

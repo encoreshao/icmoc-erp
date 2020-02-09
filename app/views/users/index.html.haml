@@ -1,0 +1,36 @@
+.page-content-wrap.users
+  .row
+    .col-md-12
+      - collection.each do |resource|
+        .col-md-3
+          .panel.panel-default
+            .panel-body.profile
+              .profile-image
+                - if resource.detail.try(:avatar).present?
+                  %img{src: resource.detail.avatar.thumb.url}
+                - else
+                  %img{src: '/assets/icons/default-user.png'}
+              .profile-data
+                .profile-data-name= resource.detail.try(:name)
+                .profile-data-title
+                  = resource.subject_text
+                  |
+                  = resource.role_names
+              .profile-controls
+                = link_to user_path(resource), class: 'profile-control-left' do
+                  %span.fa.fa-info
+                = link_to edit_user_path(resource), class: 'profile-control-right' do
+                  %span.fa.fa-edit
+
+            .panel-body
+              .contact-info
+                %p
+                  %small 联系方式:
+                  = resource.detail.try(:mobile_phone)
+                %p
+                  %small 邮箱:
+                  = resource.email
+  .row
+    .col-md-12
+      .pagination.pagination-sm.pull-left.push-down-10.push-up-10
+        = paginate collection

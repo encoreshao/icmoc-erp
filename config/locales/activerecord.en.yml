@@ -1,0 +1,67 @@
+en:
+  enumerize:
+    user:
+      subject:
+        trainee: Trainee
+        employee: Employee
+    sale:
+      state:
+        process: In-process
+        closed: Closed
+      order_type:
+        normals: Normal PO
+        delays: Delay PO
+      type_name:
+        projects: Project
+        commerces: Commerce
+    reimbursement:
+      state:
+        pending: Pending
+        confirmed: Confirmed
+        paid: Paid
+    episode:
+      usage:
+        meals: Meal
+        accommodations: Hotal
+        materials: Material
+        taxi: Taxi
+        other: Other
+    user_detail:
+      gender:
+        male: Male
+        female: Female
+      marriage:
+        single: Single
+        married: Married
+    setting:
+      project_payment_mode:
+        mode1: 100%
+        mode2: 70%
+        mode3: 40%
+        mode4: 10%
+      purchase_payment_mode:
+        mode1: 100%
+        mode2: 70%
+        mode3: 40%
+        mode4: 10%
+
+  activerecord:
+    models:
+      user: User
+      user_detail: UserDetail
+      reimbursement: Reimbursement
+      episode: Episode
+      project: Project
+      sale: Sale
+      company: Company
+      setting: Setting
+
+    attributes:
+      user:
+        name: Name
+        email: Email
+        password: Password
+        last_sign_in_at: Last Sign In At
+        last_sign_in_ip: Last Sign In IP
+        subject: Subject
+        roles: Roles

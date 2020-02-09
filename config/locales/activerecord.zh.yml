@@ -1,0 +1,181 @@
+zh:
+  enumerize:
+    user:
+      subject:
+        trainee: 实习生
+        employee: 正式员工
+    sale:
+      state:
+        process: 进行中
+        closed: 已结束
+      order_type:
+        normals: 正常PO
+        delays: 待补PO
+      type_name:
+        projects: 项目
+        commerces: 贸易
+    reimbursement:
+      state:
+        pending: 未处理
+        confirmed: 已确认
+        paid: 已支付
+    episode:
+      usage:
+        meals: 餐费
+        accommodations: 住宿
+        materials: 材料
+        taxi: 打车
+        other: 其它
+    user_detail:
+      gender:
+        male: 男
+        female: 女
+      marriage:
+        single: 单身
+        married: 已婚
+    setting:
+      project_payment_mode:
+        mode1: 100%
+        mode2: 70%
+        mode3: 40%
+        mode4: 10%
+      purchase_payment_mode:
+        mode1: 100%
+        mode2: 70%
+        mode3: 40%
+        mode4: 10%
+
+  activerecord:
+    models:
+      user: 用户
+      role: 角色
+      permission: 权限
+      project: 工程项目
+      sale: 销售订单
+      company: 客户
+      brand: 品牌
+      product_unit: 物品单位
+      product: 产品
+      reimbursement: 报销
+      setting: 基本设置
+      episode: 报销项
+
+    attributes:
+      user:
+        email: 登录邮箱
+        password: 密码
+        password_confirmation: 确认密码
+        last_sign_in_at: 上次登录时间
+        last_sign_in_ip: 上次登录IP
+        subject: 员工类型
+        roles: 角色
+        admin: 超级管理员
+        active: 是否有效
+      user_detail:
+        name: 姓名
+        hiredate: 入职日期
+        mobile_phone: 联系电话
+        address: 现住址
+        avatar: 个人头像
+        gender: 性别
+        position: 职位
+        age: 年龄
+        birthday: 生日
+        marriage: 婚姻状况
+        country: 国家
+        birthplace: 出生地
+        nationality: 国籍
+        id_card_no: 身份证/PASSPORT
+        contact_person: 第二联系人
+        contact_phone: 第二联系人电话
+      role:
+        name: 名称
+        position: 位置
+        permissions: 权限
+      permission:
+        name: 名称
+        note: 备注
+      brand:
+        name: 名称
+      product_unit:
+        name: 名称
+      product:
+        name: 名称
+        model: 型号
+        brand_id: 品牌
+        product_unit_id: 单位
+      company:
+        name: 客户名称
+        address: 地址
+        industry: 行业
+        website: 网址
+        postcode: 邮编
+        contact_person: 联系人
+        country: 国家
+        city: 城市
+        created_at: 创建时间
+        updated_at: 修改时间
+        nature_of_business: 公司性质
+        introduction: 简介
+        description: 描述
+        fax: 传真
+        logo: LOGO
+        legal_person: 企业法人
+        bank_address: 开户行地址
+        bank_account: 银行账号
+        tax_no: 税号
+        telephone: 联系电话
+      sale:
+        name: 项目名称
+        owner_id: 销售员
+        contact_no: 客户PO编号
+        company_id: 客户名称
+        delivery_content: 交货内容
+        delivery_time: 交货日期
+        delivery_place: 交货地址
+        payment_mode: 支付方式
+        money: 总价
+        tax: 税种
+        number: 交货数量
+        unit: 交货单位
+        freight_charge: 运费
+        order_type: PO类型
+        type_name: 订单分类
+        state: 订单状态
+        created_date: 订单日期
+      project:
+        name: 项目名称
+        sale_id: 销售订单
+        company_id: 客户名称
+        contact_no: 销售PO编号
+        pm_user_id: 项目经理
+        number: 项目单号
+        budget: 项目预算
+      reimbursement:
+        created_at: 提交日期
+        user_id: 报销员工
+        project_id: 项目编号
+        amount: 总金额
+        episodes_count: 报销次数
+        episodes_amount: 总金额
+        state: 状态
+      episodes:
+        activity_date: 日期
+        amount: 金额
+        usage: 报销内容
+        description: 描述
+        count: 人数
+      episode:
+        activity_date: 日期
+        amount: 金额
+        usage: 报销内容
+        description: 描述
+        count: 人数
+      setting:
+        depot_alarm_value: 仓库预警值
+        project_payment_mode: 项目付款方式
+        purchase_payment_mode: 采购付款方式
+        created_by: 创建者
+        created_date: 创建日期
+        last_modified_by: 上次修改者
+        last_modified_date: 上次修改时间

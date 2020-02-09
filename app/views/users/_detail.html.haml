@@ -1,0 +1,54 @@
+.page-content-wrap
+  #tab-general
+    .row.mbl
+      .col-lg-12
+        .col-md-12
+          #area-chart-spline{style: 'width: 100%; height: 300px; display: none;'}
+      .col-lg-12
+        .row
+          .col-md-12
+            %h2 个人简介:
+            .row.mtl.edit-content.border-wrapper
+              .col-md-3
+                .form-group
+                  .text-center.mbl
+                    - if user.detail.avatar.nil?
+                      %img.img-responsive{src: '/assets/icons/default-user.png'}
+                    - else
+                      %img.img-responsive{src: user.detail.avatar_url}
+
+                  .text-center.mbl
+                    %span.file-input.file-input-new
+                      .file-preview
+                        .close.fileinput-remove.text-right
+                        .file-preview-thumbnails
+                        .clearfix
+                        .file-preview-status.text-center.text-success
+                      %input{type: 'button', class: 'btn btn-default fileinput-remove fileinput-remove-button'}
+                        %i.fa.fa-refresh
+                        = t('actions.remove')
+                      .btn.btn-primary.btn-file
+                        %i.fa.fa-folder-open-o
+                          &nbsp;
+                          上传 …
+                        %input{type: 'file'}
+
+                %table.table.table-hover
+                  %tr
+                    %td= collection.name.safe_constantize.human_attribute_name(:subject)
+                    %td= user.subject_text
+                  %tr
+                    %td= collection.name.safe_constantize.human_attribute_name(:roles)
+                    %td= user.role_names
+
+              .col-md-9
+                #tab-edit.tab-pane.fade.in.active
+                  = simple_nested_form_for user, url: url, wrapper: :h_form do |f|
+                    = f.input :email
+                    = f.input :password
+                    = f.simple_fields_for :detail, user.detail do |p|
+                      = p.input :name
+                      = p.input :age
+                      = p.input :hiredate, as: :date, html5: true
+
+                    = f.submit class: 'btn btn-green btn-block'

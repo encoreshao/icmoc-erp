@@ -1,0 +1,81 @@
+.theme-settings
+  .ts-button
+    %span.fa.fa-cogs.fa-spin
+  .ts-body
+    .ts-title
+    .ts-themes
+
+#header-topbar-option-demo.page-header-topbar
+  %nav#topbar.navbar.navbar-default.navbar-static-top{"data-step" => "3", :role => "navigation", :style => "margin-bottom: 0;"}
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".sidebar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a#logo.navbar-brand{:href => root_path}
+        %span.fa.fa-rocket
+        %span.logo-text #{t('title')}
+        %span.logo-text-icon{:style => "display: none"} µ
+    .topbar-main
+      %a#menu-toggle.hidden-xs{:href => "javascript:void(0);"}
+        %i.fa.fa-bars
+      %form#topbar-search.hidden-sm.hidden-xs{:action => "", :method => ""}
+        .input-icon.right.text-white
+          %a{:href => "#"}
+            %i.fa.fa-search
+          %input.form-control.text-white{:placeholder => "Search name...", :type => "text"}/
+      %ul.nav.navbar.navbar-top-links.navbar-right.mbn
+        %li.dropdown
+          %a.dropdown-toggle{"data-hover" => "dropdown", :href => "#"}
+            %i.fa.fa-bell.fa-fw
+            %span.badge.badge-green 3
+        %li.dropdown
+          %a.dropdown-toggle{"data-hover" => "dropdown", :href => "#"}
+            %i.fa.fa-envelope.fa-fw
+            %span.badge.badge-orange 7
+        %li.dropdown
+          %a.dropdown-toggle{"data-hover" => "dropdown", :href => "#"}
+            %i.fa.fa-tasks.fa-fw
+            %span.badge.badge-yellow 8
+        %Li
+          = link_to 'LOGOUT', destroy_user_session_path, data: { method: :DELETE }
+        %li.dropdown.topbar-user
+          %a.dropdown-toggle{"data-hover" => "dropdown", :href => "#"}
+            %img.img-responsive.img-circle>/
+            \&nbsp;
+            %span.hidden-xs> Encore Shao
+            \&nbsp;
+            %span.caret
+          %ul.dropdown-menu.dropdown-user.pull-right
+            %li
+              %a{:href => "#"}
+                %i.fa.fa-user>
+                My Profile
+            %li
+              %a{:href => "#"}
+                %i.fa.fa-calendar>
+                My Calendar
+            %li
+              %a{:href => "#"}
+                %i.fa.fa-envelope>
+                My Inbox
+                %span.badge.badge-danger 3
+            %li
+              %a{:href => "#"}
+                %i.fa.fa-tasks>
+                My Tasks
+                %span.badge.badge-success 7
+            %li.divider
+            %li
+              %a{:href => "#"}
+                %i.fa.fa-lock>
+                Lock Screen
+            %li
+              %a{:href => "Login.html"}
+                %i.fa.fa-key>
+                Log Out
+        %li#topbar-chat.hidden-xs
+          %a.btn-chat{"data-intro" => "&lt;b&gt;Form chat&lt;/b&gt; keep you connecting with other coworker", "data-position" => "left", "data-step" => "4", :href => "javascript:void(0)"}
+            %i.fa.fa-comments
+            %span.badge.badge-info 3

@@ -1,0 +1,7 @@
+%ul.breadcrumb
+  %li
+    = link_to t('menu.dashboard'), root_path
+  %li.active
+    - url_path = "javascript:void(0);"
+    - url_path = collection_path unless controller_name == 'home'
+    = link_to t("menu.#{controller_name}"), url_path

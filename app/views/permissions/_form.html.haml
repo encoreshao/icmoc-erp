@@ -1,0 +1,5 @@
+= simple_form_for resource, url: url, wrapper: :h_form do |f|
+  = render 'form_header'
+  = f.input :name, required: true
+
+  = render partial: 'form_submit', locals: { f: f }

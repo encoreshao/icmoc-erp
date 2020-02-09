@@ -1,0 +1,42 @@
+.page-content-wrap
+  .row
+    .col-md-12
+      .panel.panel-default
+        .panel-heading.ui-draggable-handle
+          %h3.panel-title
+            #{collection.name.safe_constantize.model_name.human}列表
+
+          %ul.panel-controls
+            %li
+              = link_to 'javascript:void(0);', class: 'panel-collapse' do
+                %span.fa.fa-angle-down
+            %li
+              = link_to '', class: 'panel-refresh' do
+                %span.fa.fa-refresh
+        .panel-body
+          %table.table.table-bordered
+            %thead
+              %tr{role: 'row'}
+                %th= collection.name.safe_constantize.human_attribute_name(:created_at)
+                %th= collection.name.safe_constantize.human_attribute_name(:user_id)
+                %th= collection.name.safe_constantize.human_attribute_name(:amount)
+                %th= collection.name.safe_constantize.human_attribute_name(:episodes_count)
+                %th{class: 'span2'}
+            %tbody
+              - collection.each do |resource|
+                %tr
+                  %td= resource.detail_submit_date
+                  %td= resource.user && resource.user.detail.try(:name)
+                  %td= resource.amount
+                  %td= resource.episodes_count
+                  %td
+                    - if resource.pending?
+                      = link_to t('actions.edit'), edit_resource_path(resource), class: 'btn btn-primary'
+                      = link_to t('actions.confirm'), confirm_reimbursement_path(resource), method: :put, class: 'btn btn-info'
+                      = link_to t('actions.destroy'), resource_path(resource), data: { method: :delete, confirm: 'Are you sure?'}, class: 'btn btn-danger'
+                    - elsif resource.confirmed?
+                      = link_to t('actions.pay'), pay_reimbursement_path(resource), method: :put, class: 'btn btn-info'
+                    - elsif resource.paid?
+                      = resource.state_text
+
+          = paginate collection
