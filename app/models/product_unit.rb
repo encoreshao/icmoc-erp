@@ -12,7 +12,7 @@
 #  updated_at  :datetime         not null
 #
 
-class ProductUnit < ActiveRecord::Base
+class ProductUnit < ApplicationRecord
   include CommonScope
 
   validates :name, presence: true, uniqueness: true

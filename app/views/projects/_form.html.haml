@@ -2,7 +2,7 @@
   = render 'form_header'
   = f.input :name, required: true
   = f.input :sale_id
-  = f.input :pm_user_id, collection: User.members, prompt: false, required: true
+  = f.input :pm_user_id, collection: User.members, prompt: true, required: true
   = f.input :number
   = f.input :budget
 

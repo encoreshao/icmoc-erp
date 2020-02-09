@@ -16,7 +16,7 @@
 #  updated_at            :datetime         not null
 #
 
-class Setting < ActiveRecord::Base
+class Setting < ApplicationRecord
   extend Enumerize
 
   belongs_to :modified, class_name: 'User', primary_key: 'id', foreign_key: 'last_modified_by'

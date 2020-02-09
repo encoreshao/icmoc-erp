@@ -26,7 +26,7 @@
 #  updated_at     :datetime         not null
 #
 
-class UserDetail < ActiveRecord::Base
+class UserDetail < ApplicationRecord
   extend Enumerize
 
   mount_uploader :avatar, UserAvatarUploader

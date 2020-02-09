@@ -23,7 +23,8 @@ gem 'httparty'
 gem 'mini_magick'
 gem 'pry-rails'
 gem 'roo'
-gem 'thin'
+
+gem 'china_regions'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

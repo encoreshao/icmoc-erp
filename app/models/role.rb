@@ -14,7 +14,7 @@
 #  updated_at  :datetime         not null
 #
 
-class Role < ActiveRecord::Base
+class Role < ApplicationRecord
   include CommonScope
 
   # Custom coder for the permissions attribute that should be an

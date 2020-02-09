@@ -27,7 +27,7 @@
 #  updated_at         :datetime         not null
 #
 
-class Company < ActiveRecord::Base
+class Company < ApplicationRecord
   mount_uploader :logo, CompanyLogoUploader
 
   validates :name, presence: true, uniqueness: true

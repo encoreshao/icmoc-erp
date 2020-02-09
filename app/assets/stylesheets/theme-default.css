@@ -1285,7 +1285,7 @@ body.page-container-boxed .page-container {
   float: left;
   padding: 15px 10px;
   position: relative;
-  background: #080a0e;
+  background: rgba(85, 85, 85, .9);
 }
 
 .profile .profile-image {

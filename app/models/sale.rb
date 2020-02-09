@@ -31,7 +31,7 @@
 #  updated_at         :datetime         not null
 #
 
-class Sale < ActiveRecord::Base
+class Sale < ApplicationRecord
   extend Enumerize
 
   validates :name, :owner_id, :type_name, :company_id, :state, presence: true

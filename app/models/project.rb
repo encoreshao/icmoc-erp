@@ -15,7 +15,7 @@
 #  updated_at :datetime         not null
 #
 
-class Project < ActiveRecord::Base
+class Project < ApplicationRecord
   validates :name, :sale_id, :number, presence: true
   validates :number, uniqueness: true
 

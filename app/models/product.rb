@@ -14,7 +14,7 @@
 #  updated_at      :datetime         not null
 #
 
-class Product < ActiveRecord::Base
+class Product < ApplicationRecord
   include CommonScope
 
   validates :model, :name, presence: true, uniqueness: true

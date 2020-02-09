@@ -15,7 +15,7 @@
 #  updated_at       :datetime         not null
 #
 
-class Episode < ActiveRecord::Base
+class Episode < ApplicationRecord
   extend Enumerize
 
   validates :activity_date, :usage, :amount, presence: true

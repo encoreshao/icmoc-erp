@@ -49,6 +49,9 @@ Rails.application.routes.draw do
         put :pay
       end
     end
+    resources :provinces
+    resources :cities
+    resources :districts
   end
 
   root 'home#index'

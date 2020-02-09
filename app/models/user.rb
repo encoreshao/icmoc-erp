@@ -29,7 +29,7 @@
 #  updated_at             :datetime
 #
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   extend Enumerize
   include CommonScope
 

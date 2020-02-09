@@ -5,4 +5,5 @@ task :restore_database do
   Rake::Task['db:create'].invoke
   Rake::Task['db:migrate'].invoke
   Rake::Task['db:seed:setup'].invoke
+  Rake::Task['china_regions:all'].invoke
 end
