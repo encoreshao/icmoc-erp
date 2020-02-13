@@ -42,25 +42,29 @@ ActiveRecord::Schema.define(version: 20_200_209_130_238) do
   create_table 'companies', force: :cascade do |t|
     t.string 'name'
     t.string 'address'
-    t.string 'country'
-    t.string 'city'
+    t.integer 'province_id'
+    t.integer 'city_id'
+    t.integer 'district_id'
     t.string 'contact_person'
     t.string 'telephone'
     t.string 'website'
     t.string 'fax'
     t.string 'postcode'
     t.string 'logo'
-    t.text 'description'
     t.string 'industry'
     t.string 'nature_of_business'
     t.text 'introduction'
+    t.text 'description'
     t.string 'tax_no'
     t.string 'legal_person'
     t.string 'bank_address'
     t.string 'bank_account'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.index ['city_id'], name: 'index_companies_on_city_id'
+    t.index ['district_id'], name: 'index_companies_on_district_id'
     t.index ['name'], name: 'index_companies_on_name'
+    t.index ['province_id'], name: 'index_companies_on_province_id'
   end
 
   create_table 'districts', force: :cascade do |t|

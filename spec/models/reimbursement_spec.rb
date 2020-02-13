@@ -4,13 +4,18 @@
 #
 # Table name: reimbursements
 #
-#  id             :integer          not null, primary key
-#  project_id     :integer
-#  user_id        :integer
-#  state          :string
+#  id             :bigint           not null, primary key
 #  episodes_count :integer
+#  state          :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  project_id     :bigint
+#  user_id        :bigint
+#
+# Indexes
+#
+#  index_reimbursements_on_project_id  (project_id)
+#  index_reimbursements_on_user_id     (user_id)
 #
 
 require 'rails_helper'

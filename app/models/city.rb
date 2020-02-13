@@ -1,5 +1,26 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: cities
+#
+#  id              :bigint           not null, primary key
+#  code            :integer
+#  districts_count :integer          default(0)
+#  level           :integer
+#  name            :string
+#  name_abbr       :string
+#  name_en         :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  province_id     :integer
+#
+# Indexes
+#
+#  index_cities_on_name         (name)
+#  index_cities_on_province_id  (province_id)
+#
+
 class City < ApplicationRecord
   include CommonScope
 
@@ -29,5 +50,11 @@ class City < ApplicationRecord
 
   def siblings
     @siblings ||= where(nil).for_province(province_id)
+  end
+
+  class << self
+    def options
+      select('id, name').map { |e| [e.name, e.id] }
+    end
   end
 end

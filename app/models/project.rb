@@ -4,15 +4,22 @@
 #
 # Table name: projects
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
+#  budget     :float
+#  is_closed  :boolean
 #  name       :string
 #  number     :string
-#  pm_user_id :integer
-#  budget     :float
-#  sale_id    :integer
-#  is_closed  :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  pm_user_id :integer
+#  sale_id    :bigint
+#
+# Indexes
+#
+#  index_projects_on_name        (name)
+#  index_projects_on_number      (number)
+#  index_projects_on_pm_user_id  (pm_user_id)
+#  index_projects_on_sale_id     (sale_id)
 #
 
 class Project < ApplicationRecord

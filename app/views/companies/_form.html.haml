@@ -9,16 +9,17 @@
   = f.input :tax_no
   = f.input :website
   - if !resource.new_record? && resource.try(:logo).present?
-    .form-group.string.optional
-      %label.optional.col-sm-3.control-label
+    .form-group.h-form.string.optional.company_logo
+      %label.col-sm-3.control-label.string.optional{for: 'company_logo'}
         = Company.human_attribute_name(:logo)
       .col-md-9
         %img.img-responsive{ src: resource.logo.url }
-  = f.input :logo, type: 'file', label: false, style: 'margin-right: 16px;'
+  = f.input :logo, type: 'file'
   = f.input :telephone
   = f.input :contact_person
-  = f.input :country, as: :string
-  = f.input :city
+  = f.input :province_id, collection: Province.options, prompt: true
+  = f.input :city_id, collection: City.options, prompt: true
+  = f.input :district_id, collection: District.options, prompt: true
   = f.input :address
   = f.input :fax
   = f.input :postcode

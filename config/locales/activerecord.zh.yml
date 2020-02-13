@@ -115,7 +115,9 @@ zh:
         postcode: 邮编
         contact_person: 联系人
         country: 国家
+        province: 省份
         city: 城市
+        district: 地区
         created_at: 创建时间
         updated_at: 修改时间
         nature_of_business: 公司性质
@@ -186,18 +188,18 @@ zh:
         name: 名称
         name_en: 拼音
         name_abbr: 简称
-        code: Code
+        code: 编码
         cities_count: 城市数
       city:
         name: 名称
         name_en: 拼音
         name_abbr: 简称
-        code: Code
+        code: 编码
         level: 级别
         districts_count: 地区数
       district:
         name: 名称
         name_en: 拼音
         name_abbr: 简称
-        code: Code
+        code: 编码
 

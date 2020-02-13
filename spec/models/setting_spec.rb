@@ -4,14 +4,14 @@
 #
 # Table name: settings
 #
-#  id                    :integer          not null, primary key
-#  depot_alarm_value     :integer
-#  project_payment_mode  :string
-#  purchase_payment_mode :string
+#  id                    :bigint           not null, primary key
 #  created_by            :integer
 #  created_date          :datetime
+#  depot_alarm_value     :integer
 #  last_modified_by      :integer
 #  last_modified_date    :datetime
+#  project_payment_mode  :string
+#  purchase_payment_mode :string
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #

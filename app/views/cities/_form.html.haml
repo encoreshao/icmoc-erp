@@ -4,5 +4,6 @@
   = f.input :code
   = f.input :name_en
   = f.input :name_abbr
+  = f.input :province_id, collection: Province.options, prompt: true
 
   = render partial: 'form_submit', locals: { f: f }

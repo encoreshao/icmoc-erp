@@ -4,14 +4,18 @@
 #
 # Table name: roles
 #
-#  id          :integer          not null, primary key
-#  name        :string
-#  position    :integer
+#  id          :bigint           not null, primary key
 #  assignable  :boolean
-#  builtin     :integer          default("0"), not null
+#  builtin     :integer          default(0), not null
+#  name        :string
 #  permissions :text
+#  position    :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#
+# Indexes
+#
+#  index_roles_on_name  (name)
 #
 
 class Role < ApplicationRecord

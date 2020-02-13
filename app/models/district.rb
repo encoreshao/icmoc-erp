@@ -1,5 +1,24 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: districts
+#
+#  id         :bigint           not null, primary key
+#  code       :integer
+#  name       :string
+#  name_abbr  :string
+#  name_en    :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  city_id    :integer
+#
+# Indexes
+#
+#  index_districts_on_city_id  (city_id)
+#  index_districts_on_name     (name)
+#
+
 class District < ApplicationRecord
   include CommonScope
 
@@ -30,5 +49,11 @@ class District < ApplicationRecord
 
   def siblings
     @siblings ||= where(nil).for_city(city_id)
+  end
+
+  class << self
+    def options
+      select('id, name').map { |e| [e.name, e.id] }
+    end
   end
 end

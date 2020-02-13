@@ -4,12 +4,16 @@
 #
 # Table name: product_units
 #
-#  id          :integer          not null, primary key
-#  name        :string
+#  id          :bigint           not null, primary key
 #  description :string
-#  is_active   :boolean          default("true")
+#  is_active   :boolean          default(TRUE)
+#  name        :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#
+# Indexes
+#
+#  index_product_units_on_name  (name)
 #
 
 require 'rails_helper'

@@ -4,15 +4,19 @@
 #
 # Table name: episodes
 #
-#  id               :integer          not null, primary key
-#  reimbursement_id :integer
+#  id               :bigint           not null, primary key
 #  activity_date    :date
-#  usage            :string
 #  amount           :float
-#  description      :text
 #  count            :integer
+#  description      :text
+#  usage            :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  reimbursement_id :bigint
+#
+# Indexes
+#
+#  index_episodes_on_reimbursement_id  (reimbursement_id)
 #
 
 class Episode < ApplicationRecord
