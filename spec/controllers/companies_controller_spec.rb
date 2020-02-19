@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe CompaniesController, type: :controller do
+  login_user
+
   describe 'GET index' do
     it 'returns http success' do
       get :index
@@ -19,14 +21,16 @@ RSpec.describe CompaniesController, type: :controller do
 
   describe 'GET edit' do
     it 'returns http success' do
-      get :edit
+      company = create(:company)
+      get :edit, params: { id: company }
       expect(response).to have_http_status(:success)
     end
   end
 
   describe 'GET show' do
     it 'returns http success' do
-      get :show
+      company = create(:company)
+      get :show, params: { id: company }
       expect(response).to have_http_status(:success)
     end
   end

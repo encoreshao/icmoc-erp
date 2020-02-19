@@ -67,9 +67,9 @@ group :development, :test do
   gem 'spring'
 
   gem 'database_cleaner'
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'guard-rspec'
-  gem 'machinist'
 end
 
 group :development do

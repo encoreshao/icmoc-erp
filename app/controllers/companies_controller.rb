@@ -33,7 +33,7 @@ class CompaniesController < BaseController
   def company_params
     permit_fields = %i[
       name industry nature_of_business legal_person bank_address bank_account
-      tax_no website logo telephone contact_person address fax postcode
+      tax_no website logo telephone contact_person contact_email address fax postcode
       introduction description province_id city_id district_id
     ]
 

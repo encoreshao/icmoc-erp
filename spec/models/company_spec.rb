@@ -8,15 +8,16 @@
 #  address            :string
 #  bank_account       :string
 #  bank_address       :string
+#  contact_email      :string
 #  contact_person     :string
 #  description        :text
 #  fax                :string
 #  industry           :string
-#  introduction       :text
 #  legal_person       :string
 #  logo               :string
 #  name               :string
 #  nature_of_business :string
+#  overview           :text
 #  postcode           :string
 #  tax_no             :string
 #  telephone          :string

@@ -45,7 +45,7 @@ module ErpApp
     config.generators do |g|
       g.template_engine     :haml
       g.test_framework      :rspec, fixture: false, views: false
-      g.fixture_replacement :machinist
+      g.factory_bot         dir: 'spec/factories'
     end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

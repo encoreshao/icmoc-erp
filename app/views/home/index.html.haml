@@ -125,17 +125,18 @@
               %thead
                 %tr
                   %th{width: '20%'}= User.human_attribute_name(:name)
-                  %th{width: '40%'}= User.human_attribute_name(:email)
                   %th{width: '50%'}= User.human_attribute_name(:roles)
+                  %th{width: '40%'}= User.human_attribute_name(:subject)
               %tbody
                 - User.order('created_at DESC').limit(5).each do |user|
                   %tr
                     %td
-                      %strong= user.display_name
-                    %td
-                      %span= user.email
+                      %strong
+                        = link_to user.display_name, user_path(user)
                     %td
                       %strong= user.role_names
+                    %td
+                      %span= user.subject_text
 
     .col-md-4
       .panel.panel-default
@@ -161,7 +162,8 @@
                 - Company.order('created_at DESC').limit(5).each do |company|
                   %tr
                     %td
-                      %strong= company.name
+                      %strong
+                        = link_to company.name, company_path(company)
                     %td
                       %span= company.industry
                     %td
@@ -187,10 +189,11 @@
                   %th{width: '20%'} 状态
                   %th{width: '30%'} 是否关闭
               %tbody
-                - Project.all.each do |project|
+                - Project.order('updated_at DESC').limit(5).each do |project|
                   %tr
                     %td
-                      %strong= project.name
+                      %strong
+                        = link_to project.name, project_path(project)
                     %td
                       %span.label.label-danger= project.sale.try(:state)
                     %td

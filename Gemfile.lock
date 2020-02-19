@@ -118,6 +118,11 @@ GEM
     erubi (1.9.0)
     erubis (2.7.0)
     execjs (2.7.0)
+    factory_bot (5.1.1)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.1.1)
+      factory_bot (~> 5.1.0)
+      railties (>= 4.2.0)
     faker (2.10.1)
       i18n (>= 1.6, < 2)
     ffi (1.12.2)
@@ -198,7 +203,6 @@ GEM
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.2.4)
-    machinist (2.0)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     mail_view (2.0.4)
@@ -388,6 +392,7 @@ DEPENDENCIES
   devise
   email_spec
   enumerize
+  factory_bot_rails
   faker
   guard-rspec
   haml
@@ -397,7 +402,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
-  machinist
   mail_view
   mini_magick
   nested_form

@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe BrandsController, type: :controller do
+  login_user
+
   describe 'GET index' do
     it 'returns http success' do
       get :index
@@ -19,7 +21,7 @@ RSpec.describe BrandsController, type: :controller do
 
   describe 'GET edit' do
     it 'returns http success' do
-      get :edit
+      get :edit, params: { id: create(:brand) }
       expect(response).to have_http_status(:success)
     end
   end

@@ -115,6 +115,7 @@ zh:
         website: 网址
         postcode: 邮编
         contact_person: 联系人
+        contact_email: 联系邮箱
         country: 国家
         regions: 区域
         province: 省份
@@ -123,7 +124,7 @@ zh:
         created_at: 创建时间
         updated_at: 修改时间
         nature_of_business: 公司性质
-        introduction: 简介
+        overview: 简介
         description: 描述
         fax: 传真
         logo: LOGO

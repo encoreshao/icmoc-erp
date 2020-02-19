@@ -3,6 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe SettingsController, type: :controller do
+  login_user
   describe 'GET index' do
     it 'returns http success' do
       get :index
