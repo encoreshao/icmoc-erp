@@ -1,5 +1,6 @@
 = simple_form_for resource, url: url, wrapper: :h_form do |f|
   = render 'form_header'
+
   = f.input :name, required: true
   = f.input :industry
   = f.input :nature_of_business
@@ -10,16 +11,17 @@
   = f.input :website
   - if !resource.new_record? && resource.try(:logo).present?
     .form-group.h-form.string.optional.company_logo
-      %label.col-sm-3.control-label.string.optional{for: 'company_logo'}
-        = Company.human_attribute_name(:logo)
+      .col-sm-3
       .col-md-9
         %img.img-responsive{ src: resource.logo.url }
-  = f.input :logo, type: 'file'
+  = f.input :logo, type: 'file', label_html: { class: 'col-sm-3' }, input_html: { class: 'col-sm-9' }
   = f.input :telephone
   = f.input :contact_person
-  = f.input :province_id, collection: Province.options, prompt: true
-  = f.input :city_id, collection: City.options, prompt: true
-  = f.input :district_id, collection: District.options, prompt: true
+  .form-group.h-form.string.optional.company_regions
+    %label.col-sm-3.control-label.string.optional{for: 'regions'}
+      = Company.human_attribute_name(:regions)
+    .col-md-9
+      = f.region_select [:province, :city, :district]
   = f.input :address
   = f.input :fax
   = f.input :postcode

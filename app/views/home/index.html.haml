@@ -1,12 +1,21 @@
 .page-content-wrap
   .row
     .col-md-3
-      .widget.widget-default.widget-carousel
+      .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/sales';"}
+        .widget-item-left
+          %span.fa.fa-bell
+        .widget-data
+          .widget-int.num-count= Sale.count
+          .widget-title= Sale.model_name.human
+          .widget-subtitle
+        .widget-controls
+          = link_to "javascript:void(0);", class: 'widget-control-right widget-remove', data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+            %span.fa.fa-times
 
     .col-md-3
       .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/companies';"}
         .widget-item-left
-          %span.fa.fa-envelope
+          %span.fa.fa-briefcase
         .widget-data
           .widget-int.num-count= Company.count
           .widget-title= Company.model_name.human
@@ -52,7 +61,7 @@
     .col-md-3
       .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/provinces';"}
         .widget-item-left
-          %span.fa.fa-envelope
+          %span.fa.fa-map-marker
         .widget-data
           .widget-int.num-count= Province.count
           .widget-title= Province.model_name.human
@@ -64,7 +73,7 @@
     .col-md-3
       .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/cities';"}
         .widget-item-left
-          %span.fa.fa-users
+          %span.fa.fa-location-arrow
         .widget-data
           .widget-int.num-count= City.count
           .widget-title= City.model_name.human
@@ -76,10 +85,22 @@
     .col-md-3
       .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/districts';"}
         .widget-item-left
-          %span.fa.fa-users
+          %span.fa.fa-sitemap
         .widget-data
           .widget-int.num-count= District.count
           .widget-title= District.model_name.human
+          .widget-subtitle
+        .widget-controls
+          = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+            %span.fa.fa-times
+
+    .col-md-3
+      .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/projects';"}
+        .widget-item-left
+          %span.fa.fa-tachometer
+        .widget-data
+          .widget-int.num-count= Project.count
+          .widget-title= Project.model_name.human
           .widget-subtitle
         .widget-controls
           = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
@@ -98,6 +119,23 @@
                 %span.fa.fa-expand
         .panel-body.padding-0
           .chart-holder
+        .panel-body.panel-body-table
+          .table-responsive
+            %table.table.table-bordered.table-striped
+              %thead
+                %tr
+                  %th{width: '20%'}= User.human_attribute_name(:name)
+                  %th{width: '40%'}= User.human_attribute_name(:email)
+                  %th{width: '50%'}= User.human_attribute_name(:roles)
+              %tbody
+                - User.order('created_at DESC').limit(5).each do |user|
+                  %tr
+                    %td
+                      %strong= user.display_name
+                    %td
+                      %span= user.email
+                    %td
+                      %strong= user.role_names
 
     .col-md-4
       .panel.panel-default
@@ -109,9 +147,25 @@
             %li
               = link_to "javascript:void(0);", class: 'panel-fullscreen' do
                 %span.fa.fa-expand
-
         .panel-body.padding-0
           .chart-holder
+        .panel-body.panel-body-table
+          .table-responsive
+            %table.table.table-bordered.table-striped
+              %thead
+                %tr
+                  %th{width: '50%'}= Company.human_attribute_name(:name)
+                  %th{width: '20%'}= Company.human_attribute_name(:industry)
+                  %th{width: '30%'}= Company.human_attribute_name(:contact_person)
+              %tbody
+                - Company.order('created_at DESC').limit(5).each do |company|
+                  %tr
+                    %td
+                      %strong= company.name
+                    %td
+                      %span= company.industry
+                    %td
+                      %strong= company.contact_person
 
     .col-md-4
       .panel.panel-default

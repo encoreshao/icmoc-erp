@@ -31,6 +31,12 @@ class CompaniesController < BaseController
   end
 
   def company_params
-    params.require(:company).permit(%i[name industry nature_of_business legal_person bank_address bank_account tax_no website logo telephone contact_person country city address fax postcode introduction description])
+    permit_fields = %i[
+      name industry nature_of_business legal_person bank_address bank_account
+      tax_no website logo telephone contact_person address fax postcode
+      introduction description province_id city_id district_id
+    ]
+
+    params.require(:company).permit(permit_fields)
   end
 end

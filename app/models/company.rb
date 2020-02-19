@@ -45,6 +45,11 @@ class Company < ApplicationRecord
   belongs_to :city, optional: true
   belongs_to :district, optional: true
 
+  # Delegate for region name
+  delegate :name, to: :province, allow_nil: true, prefix: true
+  delegate :name, to: :city, allow_nil: true, prefix: true
+  delegate :name, to: :district, allow_nil: true, prefix: true
+
   after_commit :remove_logo!, on: :destroy
 
   def self.customers

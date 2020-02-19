@@ -31,4 +31,5 @@
 //= require ./plugins/jquery-validation/jquery.validate
 //= require ./plugins/maskedinput/jquery.maskedinput.min
 //= require ./plugins/scrolltotop/scrolltopcontrol
+//= require region_select
 //= require nested_form

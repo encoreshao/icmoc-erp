@@ -1,0 +1,39 @@
+.page-content-wrap
+  #tab-general
+    .row.mbl
+      .col-lg-12
+        .col-md-12
+          #area-chart-spline{style: 'width: 100%; height: 300px; display: none;'}
+      .col-lg-12
+        .row
+          .col-md-12
+            .row.mtl.edit-content.border-wrapper
+              .col-md-3
+                .form-group
+                  .text-center.mbl
+                    %img.img-responsive{ src: resource.logo.url }
+
+              .col-md-9
+                %h3 #{resource.try(:name)}
+                %br
+                #tab-edit.tab-pane.fade.in.active
+                  %table.table.table-bordered.table-hover
+                    - %i[industry nature_of_business legal_person bank_address bank_account tax_no website telephone contact_person address fax postcode introduction description].each do |field|
+                      %tr
+                        %td
+                          %strong= Company.human_attribute_name(field)
+                        %td= resource.send(field)
+                    %tr
+                      %td
+                        %strong= Company.human_attribute_name(:province)
+                      %td= resource.province_name
+                    %tr
+                      %td
+                        %strong= Company.human_attribute_name(:city)
+                      %td= resource.city_name
+                    %tr
+                      %td
+                        %strong= Company.human_attribute_name(:district)
+                      %td= resource.district_name
+                    %tr
+                      %td{colspan: 2}= link_to t('actions.edit'), edit_company_path(resource), class: 'btn btn-info'
