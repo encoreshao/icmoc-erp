@@ -30,13 +30,7 @@ class CompaniesController < BaseController
     @companies ||= end_of_association_chain.page(params[:page]).per(10)
   end
 
-  def company_params
-    permit_fields = %i[
-      name industry nature_of_business legal_person bank_address bank_account
-      tax_no website logo telephone contact_person contact_email address fax postcode
-      introduction description province_id city_id district_id
-    ]
-
-    params.require(:company).permit(permit_fields)
+  def company_param
+    params.require(:company).permit(Company::PERMIT_FIELDS)
   end
 end

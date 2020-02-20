@@ -66,6 +66,7 @@ Metrics/BlockLength:
   Max: 196
   Exclude:
     - db/schema.rb
+    - config/initializers/simple_form_bootstrap.rb
 
 # Offense count: 1
 # Configuration parameters: CountComments.
@@ -209,7 +210,18 @@ Style/NumericPredicate:
 # URISchemes: http, https
 Layout/LineLength:
   Max: 216
+  Exclude:
+    - config/initializers/simple_form_bootstrap.rb
 
 Style/FormatStringToken:
   Exclude:
     - lib/erp/i18n.rb
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true

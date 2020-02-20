@@ -8,24 +8,16 @@
         .col-md-12
           %h3 #{resource.try(:name)}
           %br
-          #tab-edit.tab-pane.fade.in.active
+          #tab-edit.tab-pane.fade.in
             %table.table.table-bordered.table-hover
-              - %i[industry nature_of_business legal_person bank_address bank_account tax_no website telephone contact_person contact_email address fax postcode overview description].each do |field|
+              - resource.class::PERMIT_FIELDS.each do |field|
                 %tr
+                  %td.col-sm-1
+                    %strong= resource.class.human_attribute_name(field)
                   %td
-                    %strong= Company.human_attribute_name(field)
-                  %td= resource.send(field)
-              %tr
-                %td
-                  %strong= Company.human_attribute_name(:province)
-                %td= resource.province_name
-              %tr
-                %td
-                  %strong= Company.human_attribute_name(:city)
-                %td= resource.city_name
-              %tr
-                %td
-                  %strong= Company.human_attribute_name(:district)
-                %td= resource.district_name
+                    - if (field_name = field.to_s) =~ /_id$/
+                      = resource.send("#{field_name.to_s.gsub('_id', '_name')}".to_sym)
+                    - else
+                      = resource.send(field)
               %tr
                 %td{colspan: 2}= link_to t('actions.edit'), edit_company_path(resource), class: 'btn btn-info'

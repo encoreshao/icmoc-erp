@@ -13,7 +13,7 @@ class CitiesController < BaseController
 
   def collection
     @collection ||= begin
-      end_of_association_chain.page(params[:page]).per(10)
+      end_of_association_chain.page(params[:page]).for_province(params[:province_id]).per(10)
     end
   end
 end

@@ -33,7 +33,7 @@ class District < ApplicationRecord
   delegate :name, to: :city, prefix: true
 
   # Filters
-  scope :for_city, ->(city_id) { where(city_id: city_id) }
+  scope :for_city, ->(city_id) { where(city_id: city_id) unless city_id.blank? }
 
   def province
     city&.province

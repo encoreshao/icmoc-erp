@@ -53,6 +53,12 @@ class Company < ApplicationRecord
 
   after_commit :remove_logo!, on: :destroy
 
+  PERMIT_FIELDS = %i[
+    name industry nature_of_business legal_person bank_address bank_account
+    tax_no website logo telephone contact_person contact_email address fax postcode
+    overview description province_id city_id district_id
+  ].freeze
+
   def self.customers
     select('id, name').map { |e| [e.name, e.id] }
   end

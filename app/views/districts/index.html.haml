@@ -15,6 +15,13 @@
               = link_to '', class: 'panel-refresh' do
                 %span.fa.fa-refresh
         .panel-body
+          .row.mbl
+            %ul.panel-controls
+              %li
+                = form_with(url: collection_path, method: :get) do
+                  = select_tag(:city_id, options_for_select(City.options, params[:city_id]), prompt: t('prompt.city'))
+                  = submit_tag t('actions.search'), class: 'btn btn-info'
+
           %table.table.table-bordered
             %thead
               %tr{role: 'row'}

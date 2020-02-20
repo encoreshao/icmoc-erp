@@ -118,6 +118,9 @@ zh:
         contact_email: 联系邮箱
         country: 国家
         regions: 区域
+        province_id: 省份
+        city_id: 城市
+        district_id: 地区
         province: 省份
         city: 城市
         district: 地区

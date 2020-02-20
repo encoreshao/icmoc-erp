@@ -38,7 +38,7 @@ class City < ApplicationRecord
   has_many :districts, dependent: :destroy
 
   # Fileters
-  scope :for_province, ->(province_id) { where(province_id: province_id) }
+  scope :for_province, ->(province_id) { where(province_id: province_id) unless province_id.blank? }
 
   def full_name
     [province_name, name].compact.join(' - ')
