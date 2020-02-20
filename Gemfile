@@ -44,7 +44,7 @@ gem 'puma'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'bootstrap-sass'
+gem 'bootstrap'
 gem 'compass-rails'
 
 # Use SCSS for stylesheets

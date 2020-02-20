@@ -1,4 +1,4 @@
-= simple_form_for resource, url: url, wrapper: :h_form do |f|
+= simple_form_for resource, url: url, wrapper: :horizontal_form do |f|
   = render 'form_header'
 
   = f.input :name, required: true
@@ -10,22 +10,22 @@
   = f.input :tax_no
   = f.input :website
   - if !resource.new_record? && resource.try(:logo).present?
-    .form-group.h-form.string.optional.company_logo
-      .col-sm-3
+    .form-group.row.string.optional.company_logo
+      .col-sm-3.col-form-label
       .col-md-9
         %img.img-responsive{ src: resource.logo.url }
-  = f.input :logo, type: 'file', label_html: { class: 'col-sm-3' }, input_html: { class: 'col-sm-9' }
+  = f.input :logo, type: 'file'
   = f.input :telephone
   = f.input :contact_person
-  .form-group.h-form.string.optional.company_regions
-    %label.col-sm-3.control-label.string.optional{for: 'regions'}
+  .form-group.row.string.optional.company_regions
+    %label.col-sm-3.col-form-label.string.optional{for: 'regions'}
       = Company.human_attribute_name(:regions)
     .col-md-9
       = f.region_select [:province, :city, :district]
   = f.input :address
   = f.input :fax
   = f.input :postcode
-  = f.input :introduction
+  = f.input :overview
   = f.input :description
 
   = render partial: 'form_submit', locals: { f: f }

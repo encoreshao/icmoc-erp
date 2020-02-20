@@ -43,7 +43,7 @@
 
               .col-md-9
                 #tab-edit.tab-pane.fade.in.active
-                  = simple_nested_form_for user, url: url, wrapper: :h_form do |f|
+                  = simple_nested_form_for user, url: url, wrapper: :horizontal_form do |f|
                     = f.input :email
                     = f.input :password
                     = f.simple_fields_for :detail, user.detail do |p|

@@ -9,7 +9,7 @@
           .col-md-12
             %h2= "{ #{current_user.detail.try(:name)} } 的个人简介"
             .row.mtl.edit-content.border-wrapper
-              = simple_nested_form_for current_user, url: profile_users_path, method: :post, wrapper: :h_form do |f|
+              = simple_nested_form_for current_user, url: profile_users_path, method: :post, wrapper: :horizontal_form do |f|
                 = f.simple_fields_for :detail, current_user.detail do |p|
                   .col-md-3
                     .form-group
