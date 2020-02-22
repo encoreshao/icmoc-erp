@@ -8,126 +8,108 @@
       %li.xn-title 导航菜单
       %li{class: "#{'active' if ['home'].include?(controller_name)}"}
         = link_to root_path do
-          %i.fa.fa-tachometer.fa-fw
+          %i.fa.fa-tachometer
           %span.xn-text #{t('menu.dashboard')}
 
       %li.xn-openable{class: "#{'active' if ['users', 'roles'].include?(controller_name)}"}
         = link_to 'javascript:void(0);' do
-          %span.fa.fa-users.fa-fw
+          %span.fa.fa-users
           %span.xn-text= "#{t('menu.users')}/#{t('menu.roles')}"
         %ul
           %li{class: "#{'active' if ['users'].include?(controller_name)}"}
             = link_to users_path do
-              %span.fa.fa-user.fa-fw
+              %span.fa.fa-user
               #{t('menu.users')}
           %li{class: "#{'active' if ['roles'].include?(controller_name)}"}
             = link_to roles_path do
-              %span.fa.fa-paw.fa-fw
+              %span.fa.fa-paw
               #{t('menu.roles')}
 
       %li.xn-openable{class: "#{'active' if ['companies', 'projects', 'sales'].include?(controller_name)}"}
         = link_to 'javascript:void(0);' do
-          %span.fa.fa-globe.fa-fw
-          %span.xn-text= "#{t('menu.companies')}/#{t('menu.sales')}/#{t('menu.projects')}"
+          %span.fa.fa-globe
+          %span.xn-text= t('menu.business')
         %ul
           %li{class: "#{'active' if controller_name == 'companies'}"}
             = link_to companies_path do
-              %span.fa.fa-briefcase.fa-fw
+              %span.fa.fa-briefcase
               #{t('menu.companies')}
           %li{class: "#{'active' if controller_name == 'sales'}"}
             %a{:href => sales_path}
-              %span.fa.fa-plus-circle.fa-fw
+              %span.fa.fa-plus-circle
               #{t('menu.sales')}
           %li{class: "#{'active' if controller_name == 'projects'}"}
             %a{:href => projects_path}
-              %span.fa.fa-star.fa-fw
+              %span.fa.fa-star
               #{t('menu.projects')}
 
       %li.xn-openable{class: "#{'active' if ['brands', 'products'].include?(controller_name)}"}
         = link_to 'javascript:void(0);' do
-          %span.fa.fa-folder-open.fa-fw
+          %span.fa.fa-folder-open
           %span.xn-text= "#{t('menu.brands')}/#{t('menu.products')}"
         %ul
           %li{class: "#{'active' if controller_name == 'brands'}"}
             = link_to brands_path do
-              %span.fa.fa-fire.fa-fw
+              %span.fa.fa-fire
               #{t('menu.brands')}
           %li{class: "#{'active' if controller_name == 'products'}"}
             = link_to products_path do
-              %span.fa.fa-list.fa-fw
+              %span.fa.fa-list
               #{t('menu.products')}
 
       %li.xn-openable{class: "#{'active' if ['purchases', 'suppliers', 'repertories', 'deliveries', 'storages'].include?(controller_name)}"}
         = link_to 'javascript:void(0);' do
-          %span.fa.fa-database.fa-fw
-          %span.xn-text 库存管理
+          %span.fa.fa-database
+          %span.xn-text= t('menu.inventory_management')
         %ul
-          %li{class: "#{'active' if controller_name == 'purchases'}"}
-            = link_to purchases_path do
-              %span.fa.fa-eye.fa-fw
-              #{t('menu.purchases')}
           %li{class: "#{'active' if controller_name == 'suppliers'}"}
             = link_to suppliers_path do
-              %span.fa.fa-user-md.fa-fw
+              %span.fa.fa-user-md
               #{t('menu.suppliers')}
+          %li{class: "#{'active' if controller_name == 'purchases'}"}
+            = link_to purchases_path do
+              %span.fa.fa-eye
+              #{t('menu.purchases')}
+          %li{class: "#{'active' if controller_name == 'storages'}"}
+            = link_to storages_path do
+              %span.fa.fa-cube
+              #{t('menu.storages')}
           %li{class: "#{'active' if controller_name == 'repertories'}"}
             = link_to repertories_path do
-              %span.fa.fa-cubes.fa-fw
+              %span.fa.fa-cubes
               #{t('menu.repertories')}
           %li{class: "#{'active' if controller_name == 'deliveries'}"}
             = link_to deliveries_path do
-              %span.fa.fa-truck.fa-fw
+              %span.fa.fa-truck
               #{t('menu.deliveries')}
-          %li{class: "#{'active' if controller_name == 'storages'}"}
-            = link_to storages_path do
-              %span.fa.fa-cube.fa-fw
-              #{t('menu.storages')}
 
       %li.xn-openable{class: "#{'active' if ['finances', 'reports'].include?(controller_name)}"}
         = link_to 'javascript:void(0);' do
-          %span.fa.fa-bar-chart-o.fa-fw
+          %span.fa.fa-bar-chart-o
           %span.xn-text= "#{t('menu.finances')}/#{t('menu.reports')}"
         %ul
           %li{class: "#{'active' if controller_name == 'finances'}"}
             = link_to finances_path do
-              %span.fa.fa-usd.fa-fw
+              %span.fa.fa-usd
               #{t('menu.finances')}
           %li{class: "#{'active' if controller_name == 'reports'}"}
             = link_to reports_path do
-              %span.fa.fa-sliders.fa-fw
+              %span.fa.fa-sliders
               #{t('menu.reports')}
 
       %li.xn-openable{class: "#{'active' if ['reimbursements'].include?(controller_name)}"}
         = link_to 'javascript:void(0);' do
-          %span.fa.fa-money.fa-fw
+          %span.fa.fa-money
           %span.xn-text= t('menu.reimbursements')
         %ul
           %li{class: "#{'active' if ['reimbursements'].include?(controller_name) && ['all'].include?(action_name)}"}
             = link_to all_reimbursements_path do
-              %span.fa.fa-money.fa-fw
+              %span.fa.fa-money
               #{t('menu.all_reimbursements')}
           %li{class: "#{'active' if ['reimbursements'].include?(controller_name) && ['index', 'new', 'edit', 'show'].include?(action_name)}"}
             = link_to reimbursements_path do
-              %span.fa.fa-dollar.fa-fw
+              %span.fa.fa-dollar
               #{t('menu.reimbursements')}
-
-      %li.xn-openable{class: "#{'active' if ['settings', 'product_units', 'themes'].include?(controller_name)}"}
-        = link_to 'javascript:void(0);' do
-          %span.fa.fa-cogs.fa-fw
-          %span.xn-text= t('menu.settings')
-        %ul
-          %li{class: "#{'active' if ['settings'].include?(controller_name)}"}
-            = link_to settings_path do
-              %span.fa.fa-cog.fa-fw
-              #{t('menu.settings')}
-          %li{class: "#{'active' if ['product_units'].include?(controller_name)}"}
-            = link_to product_units_path do
-              %span.fa.fa-tags.fa-fw
-              #{t('menu.product_units')}
-          %li{class: "#{'active' if ['themes'].include?(controller_name)}"}
-            = link_to themes_path do
-              %span.fa.fa-tags.fa-themeisle
-              #{t('menu.themes')}
 
       %li.xn-openable{class: "#{'active' if ['provinces', 'cities', 'districts'].include?(controller_name)}"}
         = link_to 'javascript:void(0);' do
@@ -146,3 +128,21 @@
             = link_to districts_path do
               %span.fa.fa-tags.fa-sitemap
               #{t('menu.districts')}
+
+      %li.xn-openable{class: "#{'active' if ['settings', 'product_units', 'themes'].include?(controller_name)}"}
+        = link_to 'javascript:void(0);' do
+          %span.fa.fa-cogs
+          %span.xn-text= t('menu.settings')
+        %ul
+          %li{class: "#{'active' if ['settings'].include?(controller_name)}"}
+            = link_to settings_path do
+              %span.fa.fa-cog
+              #{t('menu.settings')}
+          %li{class: "#{'active' if ['product_units'].include?(controller_name)}"}
+            = link_to product_units_path do
+              %span.fa.fa-tags
+              #{t('menu.product_units')}
+          %li{class: "#{'active' if ['themes'].include?(controller_name)}"}
+            = link_to themes_path do
+              %span.fa.fa-th
+              #{t('menu.themes')}

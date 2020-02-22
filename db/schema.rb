@@ -231,6 +231,7 @@ ActiveRecord::Schema.define(version: 20_200_222_020_648) do
     t.string 'id_card_no'
     t.bigint 'user_id'
     t.integer 'theme_id'
+    t.string 'locale'
     t.string 'contact_person'
     t.string 'contact_phone'
     t.datetime 'created_at', null: false

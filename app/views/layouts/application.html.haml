@@ -6,9 +6,10 @@
     %meta{ :'http-equiv' => 'X-UA-Compatible', content: 'IE=edge' }
     %meta{ :name => 'viewport', content: 'width=device-width, initial-scale=1' }
 
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag  ['theme', current_user.theme_appearance].join('-'), media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body{style: "background: #0b58a6 url(#{Theme.all.sample.image.url}) fixed 0 0 no-repeat"}
+
+  %body{style: "background: #0b58a6 url(#{current_user.theme_image_url}) fixed 0 0 no-repeat"}
     .page-container.page-navigation-top-fixed
       .page-sidebar.page-sidebar-fixed.scroll.mCustomScrollbar._mCS_1.mCS-autoHide
         = render 'sidebar'

@@ -10,8 +10,8 @@
         = t('tips.login_note')
 
       = simple_form_for resource, as: resource_name, url: session_path(resource_name), wrapper: :vertical_form, html: { autocomplete: 'off' } do |f|
-        = f.input :email, autofocus: true, required: true, placeholder: t('tips.email'), label: false
-        = f.input :password, required: true, placeholder: t('tips.password'), label: false
+        = f.input :email, autofocus: true, required: true, placeholder: t('tips.email'), label: false, input_html: { value: 'user1@icmoc.com' }
+        = f.input :password, required: true, placeholder: t('tips.password'), label: false, input_html: { value: 'auto-123' }
         - if devise_mapping.rememberable?
           = f.input :remember_me, as: :boolean, label: t('tips.remember_me')
 

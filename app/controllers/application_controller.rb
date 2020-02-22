@@ -14,6 +14,13 @@ class ApplicationController < ActionController::Base
   rescue_from ::Unauthorized, with: :deny_access
   rescue_from ::ActionView::MissingTemplate, with: :missing_template
 
+  around_action :switch_locale
+
+  def switch_locale(&action)
+    locale = current_user&.locale || I18n.default_locale
+    I18n.with_locale(locale, &action)
+  end
+
   def deny_access
     current_user.nil? ? render_403 : require_login
   end

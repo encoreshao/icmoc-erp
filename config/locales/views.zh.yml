@@ -9,6 +9,8 @@ zh:
     users: 用户
     roles: 角色
     projects: 工程项目
+    business: 公司/销售/项目
+    inventory_management: 库存管理
     purchases: 采购
     suppliers: 供货商
     repertories: 仓库
@@ -29,7 +31,7 @@ zh:
     provinces: 省份
     cities: 城市
     districts: 地区
-    themes: 主题
+    themes: 主题列表
   actions:
     new: 新建
     add: 添加
@@ -90,6 +92,7 @@ zh:
   button_check_all: 全选
   button_uncheck_all: 撤销全选
 
+  notice_account_created: 帐号创建成功
   notice_account_updated: 帐号更新成功
   notice_account_invalid_creditentials: 无效的用户名或密码
   notice_account_password_updated: 密码更新成功
@@ -437,6 +440,11 @@ zh:
   permission_add_district: 新建地区/权限
   permission_edit_district: 编辑地区/权限
   permission_delete_district: 删除地区/权限
+  permission_manage_themes: 管理主题/权限
+  permission_view_theme: 查看主题/权限
+  permission_add_theme: 新建主题/权限
+  permission_edit_theme: 编辑主题/权限
+  permission_delete_theme: 删除主题/权限
 
   module_users: 用户
   module_roles: 角色/权限
@@ -452,6 +460,7 @@ zh:
   module_provinces: 省份
   module_cities: 城市
   module_districts: 地区
+  module_themes: 地区
 
   label_user: 用户
   label_user_plural: 用户
@@ -818,6 +827,8 @@ zh:
   label_project_copy_notifications: 复制项目时发送邮件通知
   label_principal_search: "搜索用户或组："
   label_user_search: "搜索用户："
+  label_file_upload: 上传 ...
+  label_user_biography: "%{user_name}'s 的个人简介"
 
   button_login: 登录
   button_submit: 提交

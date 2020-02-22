@@ -16,6 +16,7 @@
 #  gender         :string
 #  hiredate       :date
 #  id_card_no     :string
+#  locale         :string
 #  marriage       :string
 #  mobile_phone   :string
 #  name           :string

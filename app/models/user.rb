@@ -57,6 +57,8 @@ class User < ApplicationRecord
           foreign_key: 'user_id'
   has_one :theme, through: :detail
 
+  delegate :name, to: :detail, allow_nil: true
+
   accepts_nested_attributes_for :roles, allow_destroy: true
   accepts_nested_attributes_for :detail, allow_destroy: true
 
@@ -78,6 +80,18 @@ class User < ApplicationRecord
     def members
       all.select('id').includes([:detail]).map { |e| [e.detail.try(:name), e.id] }
     end
+  end
+
+  def theme_image_url
+    (theme&.image || Theme.default_image).url
+  end
+
+  def theme_appearance
+    (theme || Theme.default_theme).appearance
+  end
+
+  def locale
+    detail.locale&.to_sym
   end
 
   protected

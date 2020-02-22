@@ -3,11 +3,10 @@
 
   - role_ids = resource.role_ids
   = f.input :email, required: true
+  = f.input :password, required: true if resource.new_record?
+  = f.input :subject, as: :radio_buttons, label_html: { class: 'col-sm-3' }, wrapper: :custom_date_select
 
-  - if resource.new_record?
-    = f.input :password, required: true
-  = f.input :subject, as: :radio_buttons, label_html: { class: 'col-sm-3' }
-  .form-group.roles.required.user-roles
+  .form-group
     %label.roles.required.col-sm-3.control-label= User.human_attribute_name(:roles)
     .col-sm-9
       - Role.builtin(false).all.sort.each_slice(4) do |roles|
@@ -19,7 +18,7 @@
 
   = f.simple_fields_for :detail, resource.detail do |p|
     = p.input :name
-    = p.input :gender, as: :radio_buttons, label_html: { class: 'col-sm-3' }
+    = p.input :gender, as: :radio_buttons, label_html: { class: 'col-sm-3' }, wrapper: :custom_date_select
     = p.input :position
     = p.input :mobile_phone
 
@@ -29,7 +28,7 @@
         .col-sm-9
           = image_tag resource.detail.avatar.url
 
-    = p.input :avatar, label_html: { class: 'optional col-sm-3 control-label', style: 'margin-right: 16px;' }
-    = p.input :hiredate, as: :date, html5: true
+    = p.input :avatar, label_html: { class: 'col-sm-3 control-label', style: 'margin-right: 16px;' }
+    = p.input :hiredate, as: :date, html5: true, label_html: { class: 'col-sm-3' }, wrapper: :custom_date_select
 
   = render partial: 'form_submit', locals: { f: f }

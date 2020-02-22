@@ -28,7 +28,8 @@ p '> Create users...'
     mobile_phone: phone_prefixes.sample + rand.to_s[4..11],
     age: rand(20..29),
     country: '中国',
-    theme: Theme.where(nil).sample
+    theme: Theme.random_theme,
+    locale: %i[en zh].sample
   }
   user.save!
 end

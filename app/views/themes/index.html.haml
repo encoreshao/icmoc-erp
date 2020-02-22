@@ -4,9 +4,7 @@
       .panel.panel-default
         .panel-heading.ui-draggable-handle
           %h3.panel-title
-            = "#{current_user.display_name}#{t('tips.de')}个人#{collection.name.safe_constantize.model_name.human}"
-            %span
-              = link_to t('actions.new'), new_resource_path
+            = collection.name.safe_constantize.model_name.human
           %ul.panel-controls
             %li
               = link_to 'javascript:void(0);', class: 'panel-collapse' do

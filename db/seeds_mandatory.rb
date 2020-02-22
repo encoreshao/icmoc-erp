@@ -1,15 +1,10 @@
 # frozen_string_literal: true
 
-Faker::Config.locale = 'zh-CN'
-
 p '> create Role...'
 Role.delete_all
-%w[系统管理员 总经理 总经理助理 项目经理 财务 工程师 销售 采购 仓库 商务].each_with_index do |name, index|
-  Role.create(
-    name: name,
-    position: (index + 1),
-    permissions: Erp::AccessControl.public_permissions.collect(&:name)
-  )
+%w[系统管理员 总经理 总经理助理 项目经理 财务 工程师 销售 采购 仓库 商务 省份 城市 地区 主题].each_with_index do |name, index|
+  role = Role.find_or_create_by(name: name)
+  role.update(position: (index + 1), permissions: Erp::AccessControl.public_permissions.collect(&:name))
 end
 
 p '> create Product unit...'

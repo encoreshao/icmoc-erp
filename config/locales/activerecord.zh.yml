@@ -33,6 +33,9 @@ zh:
       marriage:
         single: 单身
         married: 已婚
+      locale:
+        zh: 中文
+        en: 英文
     setting:
       project_payment_mode:
         mode1: 100%
@@ -46,8 +49,11 @@ zh:
         mode4: 10%
     theme:
       appearance:
+        default: 默认
         light: 浅色
         dark: 深色
+        blue: 蓝色
+        brown: 棕色
 
   activerecord:
     models:
@@ -66,7 +72,7 @@ zh:
       province: 省份
       city: 城市
       district: 地区
-      theme: 主题
+      theme: 主题列表
 
     attributes:
       user:
@@ -80,6 +86,7 @@ zh:
         roles: 角色
         admin: 超级管理员
         active: 是否有效
+        theme: 当前主题
       user_detail:
         name: 姓名
         hiredate: 入职日期
@@ -97,6 +104,8 @@ zh:
         id_card_no: 身份证/PASSPORT
         contact_person: 第二联系人
         contact_phone: 第二联系人电话
+        theme_id: 主题
+        locale: 语言
       role:
         name: 名称
         position: 位置

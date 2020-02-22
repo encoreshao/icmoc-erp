@@ -7,7 +7,7 @@
       .col-lg-12
         .row
           .col-md-12
-            %h2= "{ #{current_user.detail.try(:name)} } 的个人简介"
+            %h2= t("label_user_biography", user_name: current_user.name)
             .row.mtl.edit-content.border-wrapper
               = simple_nested_form_for current_user, url: profile_users_path, method: :post, wrapper: :horizontal_form do |f|
                 = f.simple_fields_for :detail, current_user.detail do |p|
@@ -24,10 +24,10 @@
                           .btn.btn-info.btn-file
                             %i.fa.fa-folder-open-o
                               &nbsp;
-                              上传 …
+                              = t('label_file_upload')
                             = p.input :avatar, type: 'file', label: false, style: 'margin-right: 16px;'
 
-                    %table.table.table-hover
+                    %table.table.table-bordered.table-hover
                       %tr
                         %td= User.human_attribute_name(:email)
                         %td= current_user.email
@@ -40,18 +40,26 @@
                       %tr
                         %td= User.human_attribute_name(:roles)
                         %td= current_user.role_names
+                      %tr
+                        %td= User.human_attribute_name(:theme)
+                        %td= current_user.detail.theme&.name
+                      %tr
+                        %td= UserDetail.human_attribute_name(:locale)
+                        %td= current_user.detail.locale_text
 
                   .col-md-9
                     #tab-edit.tab-pane.fade.in.active
                       = p.input :name
                       = p.input :age, as: :string
-                      = p.input :birthday, as: :date, html5: true
-                      = p.input :marriage, collection: UserDetail.marriage.values, prompt: true
+                      = p.input :birthday, as: :date, html5: true, label_html: { class: 'col-sm-3' }, wrapper: :custom_date_select
+                      = p.input :marriage, prompt: false
                       = p.input :birthplace
                       = p.input :country, as: :string
                       = p.input :nationality
                       = p.input :id_card_no
                       = p.input :contact_person
                       = p.input :contact_phone
+                      = p.input :theme_id, collection: Theme.options, prompt: true
+                      = p.input :locale, prompt: false
 
                       = render partial: 'form_submit', locals: { f: f }

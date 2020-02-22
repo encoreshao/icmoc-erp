@@ -5,21 +5,19 @@ class UsersController < BaseController
     if request.post?
       current_user.update_attributes(user_params)
 
-      redirect_to request.referer, notice: '用户信息更新成功!' if current_user.save
+      redirect_to request.referer, notice: t('notice_account_updated') if current_user.save
     end
   end
 
   def create
-    resource = User.new(user_params)
-
-    create!(notice: "用户(#{resource.detail.try(:name)})创建成功!") { collection_path }
+    create!(notice: t('notice_account_created')) { collection_path }
   end
 
   def update
     resource = User.find params[:id]
     resource.update_attributes(user_params)
 
-    update!(notice: '用户信息更新成功!') { request.referer }
+    update!(notice: t('notice_account_updated')) { request.referer }
   end
 
   def disable
@@ -42,6 +40,10 @@ class UsersController < BaseController
   def user_params
     params.require(:user).permit([:email, :password, :subject,
                                   role_ids: [],
-                                  detail_attributes: %i[id name avatar hiredate address mobile_phone gender position age birthday marriage country birthplace nationality id_card_no contact_person contact_phone]])
+                                  detail_attributes: %i[
+                                    id name avatar hiredate address mobile_phone gender position age
+                                    birthday marriage country birthplace nationality id_card_no
+                                    contact_person contact_phone theme_id locale
+                                  ]])
   end
 end

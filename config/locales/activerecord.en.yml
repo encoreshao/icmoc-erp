@@ -33,6 +33,9 @@ en:
       marriage:
         single: Single
         married: Married
+      locale:
+        zh: ZH
+        en: EN
     setting:
       project_payment_mode:
         mode1: 100%

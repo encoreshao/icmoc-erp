@@ -5,10 +5,12 @@ en:
   full_title: Free Online ERP | ICMOC
   menu:
     home: Home
-    dashboard: dashboard
+    dashboard: Dashboard
     users: Users
     roles: Roles
     projects: Projects
+    business: Business
+    inventory_management: Inventory
     purchases: Purchases
     suppliers: Suppliers
     repertories: Repertories
@@ -52,6 +54,7 @@ en:
       next: Next
       truncate: ...
 
+  notice_account_created: Account was successfully created.
   notice_account_updated: Account was successfully updated.
   notice_account_invalid_creditentials: Invalid user or password
   notice_account_password_updated: Password was successfully updated.
@@ -781,6 +784,8 @@ en:
   label_project_copy_notifications: Send email notifications during the project copy
   label_principal_search: "Search for user or group:"
   label_user_search: "Search for user:"
+  label_file_upload: Upload ...
+  label_user_biography: "%{user_name}'s Biography"
   label_additional_workflow_transitions_for_author: Additional transitions allowed when the user is the author
   label_additional_workflow_transitions_for_assignee: Additional transitions allowed when the user is the assignee
   label_issues_visibility_all: All issues

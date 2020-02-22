@@ -2,7 +2,13 @@
   = render 'form_header'
   = f.input :name, required: true
   = f.input :appearance, prompt: false
-  = f.input :position, input_html: { value: (resource.new_record? ? Theme.maximum(:position) : f.position) }
-  = f.input :image
+  = f.input :position, input_html: { value: (resource.new_record? ? Theme.maximum(:position) : resource.position) }
+
+  - unless resource.new_record?
+    .form-group.row.string.required.theme_image.form-group-valid
+      %label.col-sm-3.col-form-label.string.required
+        = resource.class.human_attribute_name(:image)
+      .col-sm-9
+        %image{ src: resource.image.preview }
 
   = render partial: 'form_submit', locals: { f: f }
