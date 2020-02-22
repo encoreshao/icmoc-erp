@@ -6,7 +6,7 @@
     %episodes
       - if resource.new_record? || resource.episodes.empty?
         = f.simple_fields_for :episodes, resource.episodes.build, wrapper: :horizontal_form do |p|
-          = p.input :activity_date, as: :date, html5: true, label_html: { class: 'col-sm-3' }
+          = p.input :activity_date, as: :date, html5: true, label_html: { class: 'col-sm-3' }, wrapper: :custom_date_select
           = p.input :usage
           = p.input :amount, hint: 'RMB', placeholder: '0.0'
           = p.input :count, collection: (1..20).to_a, prompt: true
@@ -15,13 +15,14 @@
       - else
         - resource.episodes.each do |episode|
           = f.simple_fields_for :episodes, episode, wrapper: :horizontal_form do |p|
-            = p.input :activity_date, as: :date, html5: true, label_html: { class: 'col-sm-3' }, input_html: { value: episode.activity_date }
-            = p.input :usage
+            = p.input :activity_date, as: :date, html5: true, label_html: { class: 'col-sm-3' }, input_html: { value: episode.activity_date }, wrapper: :custom_date_select
+            = p.input :usage, prompt: true
             = p.input :amount, hint: 'RMB', placeholder: '0.0'
             = p.input :count, collection: (1..20).to_a, prompt: true
             = p.input :description, placeholder: t('tips.desc')
             = p.link_to_remove t('actions.remove'), class: 'btn btn-danger'
 
+      %br
       = f.link_to_add t('actions.add'), :episodes, class: 'btn btn-info'
 
   %fieldset

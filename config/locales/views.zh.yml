@@ -2,7 +2,7 @@ zh:
   name: EPR
   full_name: ERP系统
   title: ERP系统
-  full_title: ERP系统
+  full_title: 免费在线ERP | ICMOC
   menu:
     home: 主面板
     dashboard: 主面板
@@ -29,6 +29,7 @@ zh:
     provinces: 省份
     cities: 城市
     districts: 地区
+    themes: 主题
   actions:
     new: 新建
     add: 添加

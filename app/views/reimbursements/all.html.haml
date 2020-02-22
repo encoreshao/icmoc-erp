@@ -37,6 +37,6 @@
                     - elsif resource.confirmed?
                       = link_to t('actions.pay'), pay_reimbursement_path(resource), method: :put, class: 'btn btn-info'
                     - elsif resource.paid?
-                      = resource.state_text
+                      %span.label.label-success= resource.state_text
 
           = paginate collection

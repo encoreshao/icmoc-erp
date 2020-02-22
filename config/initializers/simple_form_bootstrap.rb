@@ -66,9 +66,9 @@ SimpleForm.setup do |config|
   config.wrappers :vertical_boolean, tag: 'fieldset', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
     b.use :html5
     b.optional :readonly
-    b.wrapper :form_check_wrapper, tag: 'div', class: 'form-check' do |bb|
-      bb.use :input, class: 'form-check-input', error_class: 'is-invalid', valid_class: 'is-valid'
-      bb.use :label, class: 'form-check-label'
+    b.wrapper :form_check_wrapper, tag: 'div', class: 'custom-control custom-checkbox form-check' do |bb|
+      bb.use :input, class: 'custom-control-input form-check-input', error_class: 'is-invalid', valid_class: 'is-valid'
+      bb.use :label, class: 'custom-control-label form-check-label'
       bb.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
       bb.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
     end
@@ -116,9 +116,19 @@ SimpleForm.setup do |config|
     b.use :html5
     b.optional :readonly
     b.use :label
-    b.wrapper tag: 'div', class: 'd-flex flex-row justify-content-between align-items-center' do |ba|
+    b.wrapper tag: 'div', class: 'd-flex flex-row justify-content-between align-items-center col-sm-9' do |ba|
       ba.use :input, class: 'form-control mx-1', error_class: 'is-invalid', valid_class: 'is-valid'
     end
+    b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
+    b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
+  end
+
+  # vertical multi select
+  config.wrappers :custom_date_select, tag: 'div', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+    b.use :html5
+    b.optional :readonly
+    b.use :label
+    b.use :input, error_class: 'is-invalid', valid_class: 'is-valid'
     b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end

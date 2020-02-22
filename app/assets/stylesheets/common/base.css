@@ -1,19 +1,48 @@
 /* backedn form Special style */
 
-.h-form {
+body {
+  background-size: cover;
+}
+
+.page-container {
+  background: transparent !important;
+}
+
+.page-container .page-content {
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+
+.horizontal_form {
   margin-bottom: 5px;
 }
 
-.h-form .col-md-9 input,
-.h-form .col-md-9 textarea,
-.h-form .col-md-9 select,
-.h-form .col-md-9 div.select {
+.form-group {
+  margin: 7px;
+}
+
+.form-group input.date {
+  line-height: 25px;
+  margin-left: 7px;
+  padding: 0 5px;
+  width: 20%;
+}
+
+.form-group label {
+  text-align: right;
+  right: 3px;
+  line-height: 30px;
+}
+
+.horizontal_form .col-md-9 input,
+.horizontal_form .col-md-9 textarea,
+.horizontal_form .col-md-9 select,
+.horizontal_form .col-md-9 div.select {
   width: 70%;
   float: left;
   margin-right: 5px;
 }
 
-.h-form .col-md-9 select.region_select {
+.horizontal_form .col-md-9 select.region_select {
   width: 23%;
 }
 
@@ -74,10 +103,6 @@ span.cm-checkbox {
   margin-bottom: 0px;
 }
 
-.form-group {
-  margin-bottom: 10px;
-}
-
 .edit_role .col-sm-3,
 .new_role .col-sm-3 {
   width: 10%;
@@ -85,11 +110,6 @@ span.cm-checkbox {
 
 .col-md-9 .flash-notice {
   text-align: left;
-}
-
-.col-md-9 h3 {
-  font-size: 1.5em;
-  margin-bottom: 0px;
 }
 
 #permissions legend {
@@ -118,4 +138,24 @@ span.cm-checkbox {
   display: inline-block;
   width: auto;
   margin-right: 10px;
+}
+
+.custom-control.custom-checkbox {
+  padding-left: 0;
+}
+
+label.custom-control-label {
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+label.custom-control-label::before,
+label.custom-control-label::after {
+  right: 0;
+  left: auto;
+}
+
+.user_remember_me {
+  text-align: left;
+  border: 0px;
 }

@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_209_130_238) do
+ActiveRecord::Schema.define(version: 20_200_222_020_648) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -205,6 +205,15 @@ ActiveRecord::Schema.define(version: 20_200_209_130_238) do
     t.datetime 'updated_at', null: false
   end
 
+  create_table 'themes', force: :cascade do |t|
+    t.string 'name'
+    t.string 'appearance'
+    t.string 'image'
+    t.integer 'position'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
   create_table 'user_details', force: :cascade do |t|
     t.string 'name'
     t.string 'avatar'
@@ -221,6 +230,7 @@ ActiveRecord::Schema.define(version: 20_200_209_130_238) do
     t.string 'nationality'
     t.string 'id_card_no'
     t.bigint 'user_id'
+    t.integer 'theme_id'
     t.string 'contact_person'
     t.string 'contact_phone'
     t.datetime 'created_at', null: false

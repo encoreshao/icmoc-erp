@@ -12,7 +12,7 @@ end
 phone_prefixes = %w[152 139 138 150 151 137 136]
 
 p '> Create users...'
-(0..20).each do |i|
+(0..rand(10..15)).each do |i|
   name = (i == 0 ? 'Admin' : Faker::Name.name)
 
   user = User.new(
@@ -27,7 +27,8 @@ p '> Create users...'
     name: name,
     mobile_phone: phone_prefixes.sample + rand.to_s[4..11],
     age: rand(20..29),
-    country: '中国'
+    country: '中国',
+    theme: Theme.where(nil).sample
   }
   user.save!
 end

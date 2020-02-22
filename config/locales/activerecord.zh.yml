@@ -44,6 +44,10 @@ zh:
         mode2: 70%
         mode3: 40%
         mode4: 10%
+    theme:
+      appearance:
+        light: 浅色
+        dark: 深色
 
   activerecord:
     models:
@@ -62,6 +66,7 @@ zh:
       province: 省份
       city: 城市
       district: 地区
+      theme: 主题
 
     attributes:
       user:
@@ -167,7 +172,7 @@ zh:
         user_id: 报销员工
         project_id: 项目编号
         amount: 总金额
-        episodes_count: 报销次数
+        episodes_count: 数量
         episodes_amount: 总金额
         state: 状态
       episodes:
@@ -208,4 +213,9 @@ zh:
         name_en: 拼音
         name_abbr: 简称
         code: 编码
+      theme:
+        name: 名称
+        appearance: 模式
+        position: 位置
+        image: 图片
 

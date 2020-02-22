@@ -2,7 +2,34 @@ en:
   name: EPR
   full_name: ERP
   title: ERP
-  full_title: ERP
+  full_title: Free Online ERP | ICMOC
+  menu:
+    home: Home
+    dashboard: dashboard
+    users: Users
+    roles: Roles
+    projects: Projects
+    purchases: Purchases
+    suppliers: Suppliers
+    repertories: Repertories
+    deliveries: Deliveries
+    storages: Storages
+    sales: Sales
+    reports: Reports
+    companies: Companies
+    distributors: Distributors
+    finances: Finances
+    settings: Settings
+    brands: Brands
+    product_units: Product Units
+    products: Products
+    reimbursements: Reimbursements
+    all_reimbursements: All Reimbursements
+    regions: Regions
+    provinces: Provinces
+    cities: Cities
+    districts: Districts
+    themes: Themes
   actions:
     new: New
     create: Create

@@ -23,6 +23,7 @@
 #  position       :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  theme_id       :integer
 #  user_id        :bigint
 #
 # Indexes

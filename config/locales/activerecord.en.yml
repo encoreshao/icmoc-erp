@@ -44,6 +44,10 @@ en:
         mode2: 70%
         mode3: 40%
         mode4: 10%
+    theme:
+      appearance:
+        light: Light
+        dark: Dark
 
   activerecord:
     models:
@@ -55,6 +59,12 @@ en:
       sale: Sale
       company: Company
       setting: Setting
+      product_unit: Product Unit
+      product: Product
+      province: Province
+      city: City
+      district: District
+      theme: Theme
 
     attributes:
       user:
@@ -83,3 +93,8 @@ en:
         name_en: PinYin
         name_abbr: Abbr
         code: Code
+      theme:
+        name: name
+        appearance: Appearance
+        position: Position
+        image: Image

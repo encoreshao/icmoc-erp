@@ -1,15 +1,14 @@
 !!!
 %html{lang: 'en'}
   %head
-    %title #{t('title')}
+    %title #{t('full_title')}
     %meta{ :'http-equiv' => 'Content-Type', content: 'text/html; charset=UTF-8' }
     %meta{ :'http-equiv' => 'X-UA-Compatible', content: 'IE=edge' }
     %meta{ :name => 'viewport', content: 'width=device-width, initial-scale=1' }
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
+  %body{style: "background: #0b58a6 url(#{Theme.all.sample.image.url}) fixed 0 0 no-repeat"}
     .page-container.page-navigation-top-fixed
       .page-sidebar.page-sidebar-fixed.scroll.mCustomScrollbar._mCS_1.mCS-autoHide
         = render 'sidebar'
@@ -21,3 +20,5 @@
 
     = render 'signout'
     = render 'footer'
+
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true

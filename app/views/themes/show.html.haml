@@ -1,0 +1,29 @@
+.page-content-wrap
+  #tab-general
+    .row.mbl
+      .col-lg-12
+        .col-md-12
+          #area-chart-spline{style: 'width: 100%; height: 300px; display: none;'}
+      .col-lg-12
+        .col-md-12
+          %h3 #{resource.try(:name)}
+          %br
+          #tab-edit.tab-pane.fade.in
+            %table.table.table-bordered.table-hover
+              %tr
+                %td.col-sm-1
+                  %strong= resource.class.human_attribute_name(:position)
+                %td
+                  = resource.position
+              %tr
+                %td.col-sm-1
+                  %strong= resource.class.human_attribute_name(:appearance)
+                %td
+                  = resource.appearance
+              %tr
+                %td.col-sm-1
+                  %strong= resource.class.human_attribute_name(:image)
+                %td
+                  %image{ src: resource.image.preview }
+              %tr
+                %td{colspan: 2}= link_to t('actions.edit'), edit_company_path(resource), class: 'btn btn-info'

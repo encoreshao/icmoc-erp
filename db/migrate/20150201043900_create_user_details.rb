@@ -18,6 +18,7 @@ class CreateUserDetails < ActiveRecord::Migration[5.2]
       t.string :nationality
       t.string :id_card_no
       t.references :user, index: true
+      t.integer :theme_id
 
       t.string :contact_person
       t.string :contact_phone

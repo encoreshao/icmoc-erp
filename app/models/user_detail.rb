@@ -23,6 +23,7 @@
 #  position       :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  theme_id       :integer
 #  user_id        :bigint
 #
 # Indexes
@@ -41,6 +42,7 @@ class UserDetail < ApplicationRecord
   validates_presence_of :name
 
   belongs_to :user
+  belongs_to :theme
 
   after_commit :remove_avatar!, on: :destroy
 end

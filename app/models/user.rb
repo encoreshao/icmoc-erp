@@ -55,6 +55,7 @@ class User < ApplicationRecord
           class_name: 'UserDetail',
           primary_key: 'id',
           foreign_key: 'user_id'
+  has_one :theme, through: :detail
 
   accepts_nested_attributes_for :roles, allow_destroy: true
   accepts_nested_attributes_for :detail, allow_destroy: true

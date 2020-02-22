@@ -17,7 +17,7 @@
         .panel-body
           %table.table.table-bordered
             %tbody
-              - collection.each_slice(2) do |resources|
+              - collection.each_slice(4) do |resources|
                 %tr
                   - resources.each do |resource|
                     %td= resource.name

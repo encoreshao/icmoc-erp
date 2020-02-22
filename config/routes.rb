@@ -52,6 +52,7 @@ Rails.application.routes.draw do
     resources :provinces
     resources :cities
     resources :districts
+    resources :themes
   end
 
   root 'home#index'

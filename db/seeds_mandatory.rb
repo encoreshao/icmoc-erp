@@ -3,7 +3,7 @@
 Faker::Config.locale = 'zh-CN'
 
 p '> create Role...'
-# Role.delete_all
+Role.delete_all
 %w[系统管理员 总经理 总经理助理 项目经理 财务 工程师 销售 采购 仓库 商务].each_with_index do |name, index|
   Role.create(
     name: name,

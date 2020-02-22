@@ -28,11 +28,9 @@
                   %td= episode.count
                   %td= episode.usage_text
               %tr
-                %td
-                  %strong= collection.name.safe_constantize.human_attribute_name(:episodes_amount)
-                %td= resource.episodes.sum(:amount)
-                %td
-                %td
+                %td= collection.name.safe_constantize.human_attribute_name(:episodes_amount)
+                %td{colspan: 3}
+                  %strong= resource.episodes.sum(:amount)
               %tr
                 %td{colspan: 4}
                   = link_to t('actions.edit'), edit_reimbursement_path(resource), class: 'btn btn-info'
