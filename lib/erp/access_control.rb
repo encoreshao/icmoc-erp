@@ -36,6 +36,14 @@ module Erp
         @loggedin_only_permissions ||= @permissions.select(&:require_loggedin?)
       end
 
+      def finances_permissions
+        @finances_permissions ||= @permissions.select(&:finance?)
+      end
+
+      def project_permissions
+        @project_permissions ||= @permissions.select(&:project?)
+      end
+
       def read_action?(action)
         if action.is_a?(Symbol)
           perm = permission(action)
@@ -111,6 +119,14 @@ module Erp
 
       def read?
         @read
+      end
+
+      def finance?
+        @require && @require == :finance
+      end
+
+      def project?
+        @require && @require == :project
       end
     end
   end

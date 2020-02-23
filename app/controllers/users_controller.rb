@@ -31,7 +31,7 @@ class UsersController < BaseController
   protected
 
   def collection
-    @users ||= end_of_association_chain.includes([:roles])
+    @users ||= end_of_association_chain.includes(%i[detail roles])
                                        .with_name(params[:name])
                                        .page(params[:page])
                                        .per(8)

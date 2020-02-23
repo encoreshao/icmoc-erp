@@ -84,6 +84,7 @@ label.floating {
 span.cm-checkbox {
   min-width: 100px;
   display: inline-block;
+  margin-bottom: 5px;
 }
 
 .flash-notice {

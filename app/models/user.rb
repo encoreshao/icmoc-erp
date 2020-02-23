@@ -72,6 +72,10 @@ class User < ApplicationRecord
     roles.map(&:name).join(',')
   end
 
+  def permissions
+    @permissions ||= roles.map(&:permissions).flatten
+  end
+
   def display_name
     detail.try(:name) || email
   end

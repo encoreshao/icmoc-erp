@@ -15,8 +15,17 @@ module ApplicationHelper
   end
 
   def check_all_links(_form_name)
-    link_to(el(:button_check_all), 'javascript:void(0);', onclick: "checkAll('permissions', true); return false;", class: 'btn btn-primary') +
-      ' '.html_safe +
-      link_to(el(:button_uncheck_all), 'javascript:void(0);', onclick: "checkAll('permissions', false); return false;", class: 'btn btn-warning')
+    link_to(
+      el(:button_check_all),
+      'javascript:void(0);',
+      onclick: "checkAll('permissions', true); return false;",
+      class: 'btn btn-primary'
+    ) + ' '.html_safe +
+      link_to(
+        el(:button_uncheck_all),
+        'javascript:void(0);',
+        onclick: "checkAll('permissions', false); return false;",
+        class: 'btn btn-warning'
+      )
   end
 end

@@ -4,6 +4,7 @@ zh:
   title: ERP系统
   full_title: 免费在线ERP | ICMOC
   menu:
+    navigation: 导航菜单
     home: 主面板
     dashboard: 主面板
     users: 用户
@@ -313,6 +314,7 @@ zh:
   setting_commit_logtime_activity_id: 记录的活动
   setting_gantt_items_limit: 在甘特图上显示的最大记录数
 
+  permission_user_dashboard: 主面板
   permission_manage_projects: 管理项目
   permission_search_project: 查询项目
   permission_view_project: 查看项目
@@ -417,6 +419,7 @@ zh:
   permission_add_setting: 新建参数设置
   permission_edit_setting: 编辑参数设置
   permission_delete_setting: 删除参数设置
+  permission_admin_reimbursements: 审批报销
   permission_manage_reimbursements: 管理报销
   permission_search_reimbursements: 报销查询
   permission_add_reimbursement: 新建报销
@@ -425,34 +428,34 @@ zh:
   permission_delete_reimbursement: 删除报销
   permission_pay_reimbursement: 支付报销
   permission_confirm_reimbursement: 确认报销
-  permission_manage_provinces: 管理省份/权限
-  permission_view_province: 查看省份/权限
-  permission_add_province: 新建省份/权限
-  permission_edit_province: 编辑省份/权限
-  permission_delete_province: 删除省份/权限
-  permission_manage_cities: 管理城市/权限
-  permission_view_city: 查看城市/权限
-  permission_add_city: 新建城市/权限
-  permission_edit_city: 编辑城市/权限
-  permission_delete_city: 删除城市/权限
-  permission_manage_districts: 管理地区/权限
-  permission_view_district: 查看地区/权限
-  permission_add_district: 新建地区/权限
-  permission_edit_district: 编辑地区/权限
-  permission_delete_district: 删除地区/权限
-  permission_manage_themes: 管理主题/权限
-  permission_view_theme: 查看主题/权限
-  permission_add_theme: 新建主题/权限
-  permission_edit_theme: 编辑主题/权限
-  permission_delete_theme: 删除主题/权限
+  permission_manage_provinces: 管理省份
+  permission_view_province: 查看省份
+  permission_add_province: 新建省份
+  permission_edit_province: 编辑省份
+  permission_delete_province: 删除省份
+  permission_manage_cities: 管理城市
+  permission_view_city: 查看城市
+  permission_add_city: 新建城市
+  permission_edit_city: 编辑城市
+  permission_delete_city: 删除城市
+  permission_manage_districts: 管理地区
+  permission_view_district: 查看地区
+  permission_add_district: 新建地区
+  permission_edit_district: 编辑地区
+  permission_delete_district: 删除地区
+  permission_manage_themes: 管理主题
+  permission_view_theme: 查看主题
+  permission_add_theme: 新建主题
+  permission_edit_theme: 编辑主题
+  permission_delete_theme: 删除主题
 
+  module_home: 主面板
   module_users: 用户
   module_roles: 角色/权限
   module_companies: 客户
   module_brands: 品牌
   module_projects: 项目
   module_sales: 销售合同
-  module_users: 用户
   module_productunits: 物品单位
   module_products: 物品
   module_settings: 参数设置
@@ -460,7 +463,7 @@ zh:
   module_provinces: 省份
   module_cities: 城市
   module_districts: 地区
-  module_themes: 地区
+  module_themes: 主题
 
   label_user: 用户
   label_user_plural: 用户
@@ -599,7 +602,7 @@ zh:
     one:   1 已关闭
     other: "%{count} 已关闭"
   label_total: 合计
-  label_permissions: 权限
+  label_permissions: 全部权限
   label_current_status: 当前状态
   label_new_statuses_allowed: 允许的新状态
   label_all: 全部

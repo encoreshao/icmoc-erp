@@ -4,6 +4,7 @@ en:
   title: ERP
   full_title: Free Online ERP | ICMOC
   menu:
+    navigation: Navigation
     home: Home
     dashboard: Dashboard
     users: Users
@@ -322,6 +323,7 @@ en:
   setting_force_default_language_for_anonymous: Force default language for anonymous users
   setting_force_default_language_for_loggedin: Force default language for logged-in users
 
+  permission_user_dashboard: User Dashboard
   permission_add_project: Create project
   permission_add_subprojects: Create subprojects
   permission_edit_project: Edit project
@@ -396,6 +398,22 @@ en:
   project_module_boards: Forums
   project_module_calendar: Calendar
   project_module_gantt: Gantt
+
+  module_home: Dashboard
+  module_users: Users
+  module_roles: Role/Permissions
+  module_companies: Companies
+  module_brands: Brands
+  module_projects: Projects
+  module_sales: Sales
+  module_productunits: Product Units
+  module_products: Products
+  module_settings: Settings
+  module_reimbursements: Reimbursements
+  module_provinces: Provinces
+  module_cities: Cities
+  module_districts: Districts
+  module_themes: Themes
 
   label_user: User
   label_user_plural: Users

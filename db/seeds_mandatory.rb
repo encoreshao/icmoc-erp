@@ -2,9 +2,20 @@
 
 p '> create Role...'
 Role.delete_all
-%w[系统管理员 总经理 总经理助理 项目经理 财务 工程师 销售 采购 仓库 商务 省份 城市 地区 主题].each_with_index do |name, index|
+eac = Erp::AccessControl
+%w[系统管理员 总经理 总经理助理 项目经理 财务 工程师 销售 采购 仓库 商务].each_with_index do |name, index|
   role = Role.find_or_create_by(name: name)
-  role.update(position: (index + 1), permissions: Erp::AccessControl.public_permissions.collect(&:name))
+  permissions = case index
+                when 0
+                  eac.permissions
+                when 1..3
+                  eac.permissions
+                when 4
+                  eac.finances_permissions
+                else
+                  eac.public_permissions
+                end
+  role.update(position: (index + 1), permissions: permissions.collect(&:name))
 end
 
 p '> create Product unit...'

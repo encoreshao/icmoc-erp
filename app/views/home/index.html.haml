@@ -1,40 +1,43 @@
 .page-content-wrap
   .row
-    .col-md-3
-      .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/sales';"}
-        .widget-item-left
-          %span.fa.fa-bell
-        .widget-data
-          .widget-int.num-count= Sale.count
-          .widget-title= Sale.model_name.human
-          .widget-subtitle
-        .widget-controls
-          = link_to "javascript:void(0);", class: 'widget-control-right widget-remove', data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
-            %span.fa.fa-times
+    - if allow_permissions(:manage_sales)
+      .col-md-3
+        .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/sales';"}
+          .widget-item-left
+            %span.fa.fa-bell
+          .widget-data
+            .widget-int.num-count= Sale.count
+            .widget-title= Sale.model_name.human
+            .widget-subtitle
+          .widget-controls
+            = link_to "javascript:void(0);", class: 'widget-control-right widget-remove', data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+              %span.fa.fa-times
 
-    .col-md-3
-      .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/companies';"}
-        .widget-item-left
-          %span.fa.fa-briefcase
-        .widget-data
-          .widget-int.num-count= Company.count
-          .widget-title= Company.model_name.human
-          .widget-subtitle
-        .widget-controls
-          = link_to "javascript:void(0);", class: 'widget-control-right widget-remove', data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
-            %span.fa.fa-times
+    - if allow_permissions(:manage_companies)
+      .col-md-3
+        .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/companies';"}
+          .widget-item-left
+            %span.fa.fa-briefcase
+          .widget-data
+            .widget-int.num-count= Company.count
+            .widget-title= Company.model_name.human
+            .widget-subtitle
+          .widget-controls
+            = link_to "javascript:void(0);", class: 'widget-control-right widget-remove', data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+              %span.fa.fa-times
 
-    .col-md-3
-      .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/users';"}
-        .widget-item-left
-          %span.fa.fa-users
-        .widget-data
-          .widget-int.num-count= User.count
-          .widget-title= User.model_name.human
-          .widget-subtitle
-        .widget-controls
-          = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
-            %span.fa.fa-times
+    - if allow_permissions(:manage_users)
+      .col-md-3
+        .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/users';"}
+          .widget-item-left
+            %span.fa.fa-users
+          .widget-data
+            .widget-int.num-count= User.count
+            .widget-title= User.model_name.human
+            .widget-subtitle
+          .widget-controls
+            = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+              %span.fa.fa-times
 
     .col-md-3
       .widget.widget-info.widget-padding-sm
@@ -58,139 +61,146 @@
             = link_to "javascript:void(0);" do
               %span.fa.fa-calendar
 
-    .col-md-3
-      .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/provinces';"}
-        .widget-item-left
-          %span.fa.fa-map-marker
-        .widget-data
-          .widget-int.num-count= Province.count
-          .widget-title= Province.model_name.human
-          .widget-subtitle
-        .widget-controls
-          = link_to "javascript:void(0);", class: 'widget-control-right widget-remove', data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
-            %span.fa.fa-times
+    - if allow_permissions(:manage_provinces)
+      .col-md-3
+        .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/provinces';"}
+          .widget-item-left
+            %span.fa.fa-map-marker
+          .widget-data
+            .widget-int.num-count= Province.count
+            .widget-title= Province.model_name.human
+            .widget-subtitle
+          .widget-controls
+            = link_to "javascript:void(0);", class: 'widget-control-right widget-remove', data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+              %span.fa.fa-times
 
-    .col-md-3
-      .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/cities';"}
-        .widget-item-left
-          %span.fa.fa-location-arrow
-        .widget-data
-          .widget-int.num-count= City.count
-          .widget-title= City.model_name.human
-          .widget-subtitle
-        .widget-controls
-          = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
-            %span.fa.fa-times
+    - if allow_permissions(:manage_cities)
+      .col-md-3
+        .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/cities';"}
+          .widget-item-left
+            %span.fa.fa-location-arrow
+          .widget-data
+            .widget-int.num-count= City.count
+            .widget-title= City.model_name.human
+            .widget-subtitle
+          .widget-controls
+            = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+              %span.fa.fa-times
 
-    .col-md-3
-      .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/districts';"}
-        .widget-item-left
-          %span.fa.fa-sitemap
-        .widget-data
-          .widget-int.num-count= District.count
-          .widget-title= District.model_name.human
-          .widget-subtitle
-        .widget-controls
-          = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
-            %span.fa.fa-times
+    - if allow_permissions(:manage_district)
+      .col-md-3
+        .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/districts';"}
+          .widget-item-left
+            %span.fa.fa-sitemap
+          .widget-data
+            .widget-int.num-count= District.count
+            .widget-title= District.model_name.human
+            .widget-subtitle
+          .widget-controls
+            = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+              %span.fa.fa-times
 
-    .col-md-3
-      .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/projects';"}
-        .widget-item-left
-          %span.fa.fa-tachometer
-        .widget-data
-          .widget-int.num-count= Project.count
-          .widget-title= Project.model_name.human
-          .widget-subtitle
-        .widget-controls
-          = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
-            %span.fa.fa-times
+    - if allow_permissions(:manage_projects)
+      .col-md-3
+        .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/projects';"}
+          .widget-item-left
+            %span.fa.fa-tachometer
+          .widget-data
+            .widget-int.num-count= Project.count
+            .widget-title= Project.model_name.human
+            .widget-subtitle
+          .widget-controls
+            = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+              %span.fa.fa-times
 
   .row
-    .col-md-4
-      .panel.panel-default
-        .panel-heading.ui-draggable-handle
-          .panel-title-box
-            %h3= User.model_name.human
-            %span
-          %ul.panel-controls{style: 'margin-top: 2px;'}
-            %li
-              = link_to "javascript:void(0);", class: 'panel-fullscreen' do
-                %span.fa.fa-expand
-        .panel-body.panel-body-table
-          .table-responsive
-            %table.table.table-bordered.table-striped
-              %thead
-                %tr
-                  %th{width: '20%'}= User.human_attribute_name(:name)
-                  %th{width: '50%'}= User.human_attribute_name(:roles)
-                  %th{width: '40%'}= User.human_attribute_name(:subject)
-              %tbody
-                - User.order('created_at DESC').limit(5).each do |user|
+    - if allow_permissions(:manage_users)
+      .col-md-4
+        .panel.panel-default
+          .panel-heading.ui-draggable-handle
+            .panel-title-box
+              %h3= User.model_name.human
+              %span
+            %ul.panel-controls{style: 'margin-top: 2px;'}
+              %li
+                = link_to "javascript:void(0);", class: 'panel-fullscreen' do
+                  %span.fa.fa-expand
+          .panel-body.panel-body-table
+            .table-responsive
+              %table.table.table-bordered.table-striped
+                %thead
                   %tr
-                    %td
-                      %strong
-                        = link_to user.display_name, user_path(user)
-                    %td
-                      %strong= user.role_names
-                    %td
-                      %span= user.subject_text
+                    %th{width: '20%'}= User.human_attribute_name(:name)
+                    %th{width: '50%'}= User.human_attribute_name(:roles)
+                    %th{width: '40%'}= User.human_attribute_name(:subject)
+                %tbody
+                  - User.order('created_at DESC').limit(5).each do |user|
+                    %tr
+                      %td
+                        %strong
+                          = link_to user.display_name, user_path(user)
+                      %td
+                        %strong= user.role_names
+                      %td
+                        %span= user.subject_text
 
-    .col-md-4
-      .panel.panel-default
-        .panel-heading.ui-draggable-handle
-          .panel-title-box
-            %h3= Company.model_name.human
-            %span
-          %ul.panel-controls{style: 'margin-top: 2px;'}
-            %li
-              = link_to "javascript:void(0);", class: 'panel-fullscreen' do
-                %span.fa.fa-expand
-        .panel-body.panel-body-table
-          .table-responsive
-            %table.table.table-bordered.table-striped
-              %thead
-                %tr
-                  %th{width: '50%'}= Company.human_attribute_name(:name)
-                  %th{width: '20%'}= Company.human_attribute_name(:industry)
-                  %th{width: '30%'}= Company.human_attribute_name(:contact_person)
-              %tbody
-                - Company.order('created_at DESC').limit(5).each do |company|
+    - if allow_permissions(:manage_companies)
+      .col-md-4
+        .panel.panel-default
+          .panel-heading.ui-draggable-handle
+            .panel-title-box
+              %h3= Company.model_name.human
+              %span
+            %ul.panel-controls{style: 'margin-top: 2px;'}
+              %li
+                = link_to "javascript:void(0);", class: 'panel-fullscreen' do
+                  %span.fa.fa-expand
+          .panel-body.panel-body-table
+            .table-responsive
+              %table.table.table-bordered.table-striped
+                %thead
                   %tr
-                    %td
-                      %strong
-                        = link_to company.name, company_path(company)
-                    %td
-                      %span= company.industry
-                    %td
-                      %strong= company.contact_person
+                    %th{width: '50%'}= Company.human_attribute_name(:name)
+                    %th{width: '20%'}= Company.human_attribute_name(:industry)
+                    %th{width: '30%'}= Company.human_attribute_name(:contact_person)
+                %tbody
+                  - Company.order('created_at DESC').limit(5).each do |company|
+                    %tr
+                      %td
+                        %strong
+                          = link_to company.name, company_path(company)
+                      %td
+                        %span= company.industry
+                      %td
+                        %strong= company.contact_person
 
-    .col-md-4
-      .panel.panel-default
-        .panel-heading.ui-draggable-handle
-          .panel-title-box
-            %h3= Project.model_name.human
-            %span
-              = link_to "#{I18n.t("actions.new")}#{Project.model_name.human}", new_project_path
-          %ul.panel-controls{style: 'margin-top: 2px;'}
-            %li
-              = link_to "javascript:void(0);", class: 'panel-fullscreen' do
-                %span.fa.fa-expand
-        .panel-body.panel-body-table
-          .table-responsive
-            %table.table.table-bordered.table-striped
-              %thead
-                %tr
-                  %th{width: '50%'} 项目名称
-                  %th{width: '20%'} 状态
-                  %th{width: '30%'} 是否关闭
-              %tbody
-                - Project.order('updated_at DESC').limit(5).each do |project|
+    - if allow_permissions(:manage_projects)
+      .col-md-4
+        .panel.panel-default
+          .panel-heading.ui-draggable-handle
+            .panel-title-box
+              %h3= Project.model_name.human
+              %span
+                = link_to "#{I18n.t("actions.new")}#{Project.model_name.human}", new_project_path
+            %ul.panel-controls{style: 'margin-top: 2px;'}
+              %li
+                = link_to "javascript:void(0);", class: 'panel-fullscreen' do
+                  %span.fa.fa-expand
+          .panel-body.panel-body-table
+            .table-responsive
+              %table.table.table-bordered.table-striped
+                %thead
                   %tr
-                    %td
-                      %strong
-                        = link_to project.name, project_path(project)
-                    %td
-                      %span.label.label-danger= project.sale.try(:state)
-                    %td
-                      %strong= project.is_closed? ? 'No' : 'Yes'
+                    %th{width: '50%'} 项目名称
+                    %th{width: '20%'} 状态
+                    %th{width: '30%'} 是否关闭
+                %tbody
+                  - Project.order('updated_at DESC').limit(5).each do |project|
+                    %tr
+                      %td
+                        %strong
+                          = link_to project.name, project_path(project)
+                      %td
+                        %span.label.label-danger= project.sale.try(:state)
+                      %td
+                        %strong= project.is_closed? ? 'No' : 'Yes'

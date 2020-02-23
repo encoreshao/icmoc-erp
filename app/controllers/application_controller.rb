@@ -3,6 +3,8 @@
 class Unauthorized < RuntimeError; end
 
 class ApplicationController < ActionController::Base
+  include PermissionsHelper
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -14,7 +16,8 @@ class ApplicationController < ActionController::Base
   rescue_from ::Unauthorized, with: :deny_access
   rescue_from ::ActionView::MissingTemplate, with: :missing_template
 
-  around_action :switch_locale
+  around_action :switch_locale, if: proc { !devise_controller? }
+  before_action :authorize, if: proc { !devise_controller? }
 
   def switch_locale(&action)
     locale = current_user&.locale || I18n.default_locale
@@ -22,12 +25,15 @@ class ApplicationController < ActionController::Base
   end
 
   def deny_access
-    current_user.nil? ? render_403 : require_login
+    current_user.nil? ? render_403 : redirect_to(root_path)
   end
 
   # Authorize the user for the requested action
-  def authorize(ctrl = params[:controller], action = params[:action], global = false)
-    allowed = User.current.allowed_to?({ controller: ctrl, action: action }, @project || @projects, global: global)
+  def authorize(ctrl = params[:controller], action = params[:action], _global = false)
+    allowed = current_user.roles.map do |role|
+      role.allowed_to?({ controller: ctrl, action: action })
+    end.include?(true)
+
     if allowed
       true
     else

@@ -5,10 +5,11 @@
 
   .panal-title
     %h4= el(:label_permissions)
+
   #permissions.panal-content.box
     - perms_by_module = @role.setable_permissions.group_by {|p| p.project_module.to_s}
 
-    - perms_by_module.keys.sort.each do |mod|
+    - perms_by_module.keys.each do |mod|
       %fieldset
         %legend
           = el_or_humanize(mod, prefix: 'module_')
@@ -18,6 +19,6 @@
             = el_or_humanize(permission.name, prefix: 'permission_')
     %br
     = check_all_links 'permissions'
-    =# hidden_field_tag 'role[permissions][]', ''
+    = hidden_field_tag 'role[permissions][]', ''
 
   = render partial: 'form_submit', locals: { f: f }

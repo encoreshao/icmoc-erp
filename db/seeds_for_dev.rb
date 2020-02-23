@@ -12,6 +12,9 @@ end
 phone_prefixes = %w[152 139 138 150 151 137 136]
 
 p '> Create users...'
+
+admin_role = Role.order('id ASC').first
+
 (0..rand(10..15)).each do |i|
   name = (i == 0 ? 'Admin' : Faker::Name.name)
 
@@ -22,7 +25,7 @@ p '> Create users...'
   )
   user.admin = (name == 'Admin')
   user.skip_confirmation!
-  user.role_ids = [Role.all.sample.id]
+  user.role_ids = [i == 0 ? admin_role.id : Role.where('id <> ?', admin_role).sample.id]
   user.detail_attributes = {
     name: name,
     mobile_phone: phone_prefixes.sample + rand.to_s[4..11],
