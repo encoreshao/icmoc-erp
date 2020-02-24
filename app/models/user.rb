@@ -58,6 +58,7 @@ class User < ApplicationRecord
   has_one :theme, through: :detail
 
   delegate :name, to: :detail, allow_nil: true
+  delegate :avatar, to: :detail, allow_nil: true
 
   accepts_nested_attributes_for :roles, allow_destroy: true
   accepts_nested_attributes_for :detail, allow_destroy: true
@@ -77,12 +78,12 @@ class User < ApplicationRecord
   end
 
   def display_name
-    detail.try(:name) || email
+    name || email
   end
 
   class << self
     def members
-      all.select('id').includes([:detail]).map { |e| [e.detail.try(:name), e.id] }
+      all.select('id').includes([:detail]).map { |e| [e.name, e.id] }
     end
   end
 

@@ -2,18 +2,7 @@
   .row
     .col-md-12
       .panel.panel-default
-        .panel-heading.ui-draggable-handle
-          %h3.panel-title
-            = collection.name.safe_constantize.model_name.human
-            %span
-              = link_to t('actions.new'), new_resource_path
-          %ul.panel-controls
-            %li
-              = link_to 'javascript:void(0);', class: 'panel-collapse' do
-                %span.fa.fa-angle-down
-            %li
-              = link_to '', class: 'panel-refresh' do
-                %span.fa.fa-refresh
+        = render partial: 'shared/index_header'
         .panel-body
           %table.table.table-bordered
             %thead

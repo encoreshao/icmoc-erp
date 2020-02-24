@@ -17,8 +17,8 @@
                         - image_url = '/assets/icons/default-user.png'
                         - image_url = current_user.detail.avatar.url unless current_user.detail.try(:avatar).blank?
                         %img.img-responsive{ src: image_url }
-                      %br
 
+                    .form-group
                       .text-center.mbl
                         %span.file-input.file-input-new
                           .btn.btn-info.btn-file
@@ -33,7 +33,7 @@
                         %td= current_user.email
                       %tr
                         %td= User.human_attribute_name(:subject)
-                        %td= current_user.subject
+                        %td= current_user.subject_text
                       %tr
                         %td= UserDetail.human_attribute_name(:position)
                         %td= current_user.detail.try(:position)

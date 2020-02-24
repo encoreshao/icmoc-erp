@@ -1,36 +1,33 @@
-.page-content-wrap.users
+.page-content-wrap
   .row
     .col-md-12
-      - collection.each do |resource|
-        .col-md-3
-          .panel.panel-default
-            .panel-body.profile
-              .profile-image
-                - if resource.detail.try(:avatar).present?
-                  %img{src: resource.detail.avatar.thumb.url}
-                - else
-                  %img{src: '/assets/icons/default-user.png'}
-              .profile-data
-                .profile-data-name= resource.detail.try(:name)
-                .profile-data-title
-                  = resource.subject_text
-                  |
-                  = resource.role_names
-              .profile-controls
-                = link_to user_path(resource), class: 'profile-control-left' do
-                  %span.fa.fa-info
-                = link_to edit_user_path(resource), class: 'profile-control-right' do
-                  %span.fa.fa-edit
+      .panel.panel-default
+        = render partial: 'shared/index_header'
+        .panel-body
+          %table.table.table-bordered
+            %thead
+              %tr{role: 'row'}
+                %th= collection.name.safe_constantize.human_attribute_name(:avatar)
+                %th= collection.name.safe_constantize.human_attribute_name(:name)
+                %th= collection.name.safe_constantize.human_attribute_name(:email)
+                %th= collection.name.safe_constantize.human_attribute_name(:subject)
+                %th= collection.name.safe_constantize.human_attribute_name(:position)
+                %th= collection.name.safe_constantize.human_attribute_name(:roles)
+                %th= collection.name.safe_constantize.human_attribute_name(:active)
+                %th
+            %tbody
+              - collection.each do |resource|
+                %tr
+                  %td
+                    - if resource.detail.try(:avatar).present?
+                      %image{ src: resource.detail.avatar.thumb.url }
+                  %td= resource.name
+                  %td= resource.email
+                  %td= resource.subject_text
+                  %td= resource.detail.try(:position)
+                  %td= resource.role_names
+                  %td= resource.active
+                  %td
+                    = render partial: 'shared/options', locals: { resource: resource }
 
-            .panel-body
-              .contact-info
-                %p
-                  %small 联系方式:
-                  = resource.detail.try(:mobile_phone)
-                %p
-                  %small 邮箱:
-                  = resource.email
-  .row
-    .col-md-12
-      .pagination.pagination-sm.pull-left.push-down-10.push-up-10
-        = paginate collection
+          = paginate collection

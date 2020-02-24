@@ -87,6 +87,9 @@ zh:
         admin: 超级管理员
         active: 是否有效
         theme: 当前主题
+        mobile_phone: 联系电话
+        avatar: 个人头像
+        position: 职位
       user_detail:
         name: 姓名
         hiredate: 入职日期

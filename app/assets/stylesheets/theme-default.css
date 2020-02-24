@@ -1434,8 +1434,8 @@ body.page-container-boxed .page-container {
 
 .breadcrumb li,
 .breadcrumb li a {
-  font-size: 11px;
-  line-height: 12px;
+  font-size: 1.5rem;
+  line-height: 2rem;
   color: #4d5669;
   text-decoration: none;
 }
