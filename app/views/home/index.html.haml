@@ -1,16 +1,17 @@
 .page-content-wrap
   .row
-    - if allow_permissions(:manage_sales)
+    - if allow_permissions(:search_reimbursements)
       .col-md-3
-        .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/sales';"}
+        .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/reimbursements';"}
           .widget-item-left
-            %span.fa.fa-bell
+            %span.fa.fa-money
           .widget-data
-            .widget-int.num-count= Sale.count
-            .widget-title= Sale.model_name.human
+            .widget-int.num-count= Reimbursement.count
+            .widget-title= Reimbursement.model_name.human
             .widget-subtitle
+              #{Reimbursement.human_enumerize_name(:state, :pending)} (#{Reimbursement.pending.count})
           .widget-controls
-            = link_to "javascript:void(0);", class: 'widget-control-right widget-remove', data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+            = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
               %span.fa.fa-times
 
     - if allow_permissions(:manage_companies)
@@ -61,6 +62,32 @@
             = link_to "javascript:void(0);" do
               %span.fa.fa-calendar
 
+    - if allow_permissions(:manage_sales)
+      .col-md-3
+        .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/sales';"}
+          .widget-item-left
+            %span.fa.fa-bell
+          .widget-data
+            .widget-int.num-count= Sale.count
+            .widget-title= Sale.model_name.human
+            .widget-subtitle
+          .widget-controls
+            = link_to "javascript:void(0);", class: 'widget-control-right widget-remove', data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+              %span.fa.fa-times
+
+    - if allow_permissions(:manage_projects)
+      .col-md-3
+        .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/projects';"}
+          .widget-item-left
+            %span.fa.fa-tachometer
+          .widget-data
+            .widget-int.num-count= Project.count
+            .widget-title= Project.model_name.human
+            .widget-subtitle
+          .widget-controls
+            = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
+              %span.fa.fa-times
+
     - if allow_permissions(:manage_provinces)
       .col-md-3
         .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/provinces';"}
@@ -95,19 +122,6 @@
           .widget-data
             .widget-int.num-count= District.count
             .widget-title= District.model_name.human
-            .widget-subtitle
-          .widget-controls
-            = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do
-              %span.fa.fa-times
-
-    - if allow_permissions(:manage_projects)
-      .col-md-3
-        .widget.widget-default.widget-item-icon{onclick: "location.href='/admin/projects';"}
-          .widget-item-left
-            %span.fa.fa-tachometer
-          .widget-data
-            .widget-int.num-count= Project.count
-            .widget-title= Project.model_name.human
             .widget-subtitle
           .widget-controls
             = link_to "javascript:void(0);", class: 'widget-control-right widget-remove' , data: {toggle: 'tooltip', placement: 'top'}, title: 'Remove Widget'  do

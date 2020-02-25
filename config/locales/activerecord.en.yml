@@ -101,3 +101,29 @@ en:
         appearance: Appearance
         position: Position
         image: Image
+
+      reimbursement:
+        created_at: Created At
+        user_id: User
+        project_id: Project No.
+        amount: Amount
+        episodes_count: Episodes Count
+        episodes_amount: Total Episodes Amount
+        state: State
+      episodes:
+        activity_date: Date
+        amount: Amount
+        usage: Usage
+        description: Description
+        count: People Count
+      episode:
+        activity_date: Date
+        amount: Amount
+        usage: Usage
+        description: Description
+        count: People Count
+      setting:
+        depot_alarm_value: Depot Alarm Value
+        project_payment_mode: Project Payment Mode
+        purchase_payment_mode: Purchase Payment Mode
+        created_by: Created By
