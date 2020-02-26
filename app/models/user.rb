@@ -5,8 +5,6 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
-#  active                 :boolean          default(FALSE)
-#  admin                  :string
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string
 #  confirmed_at           :datetime
@@ -22,6 +20,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  sign_in_count          :integer          default(0), not null
+#  status                 :string
 #  subject                :string
 #  unconfirmed_email      :string
 #  unlock_token           :string
@@ -46,7 +45,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable
 
-  enumerize :subject, in: %i[trainee employee], scopes: true, default: :employee, allow_nil: true
+  enumerize :subject, in: %i[trainee employee], scopes: true, default: :employee
+  enumerize :status, in: %i[active inactive], scopes: true, default: :active
 
   has_many :user_roles, dependent: :destroy
   has_many :roles, through: :user_roles
@@ -96,7 +96,7 @@ class User < ApplicationRecord
   end
 
   def locale
-    detail.locale&.to_sym
+    detail&.locale&.to_sym
   end
 
   protected

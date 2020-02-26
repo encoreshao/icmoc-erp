@@ -4,6 +4,9 @@ en:
       subject:
         trainee: Trainee
         employee: Employee
+      status:
+        active: Active
+        inactive: Deleted
     sale:
       state:
         process: In-process

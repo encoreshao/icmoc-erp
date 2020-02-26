@@ -5,8 +5,6 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
-#  active                 :boolean          default(FALSE)
-#  admin                  :string
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string
 #  confirmed_at           :datetime
@@ -22,6 +20,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  sign_in_count          :integer          default(0), not null
+#  status                 :string
 #  subject                :string
 #  unconfirmed_email      :string
 #  unlock_token           :string
@@ -38,11 +37,9 @@
 
 FactoryBot.define do
   factory :user do
-    sequence(:email) { |n| "admin-#{n.to_s.rjust(3, '0')}@icmoc.com" }
+    sequence(:email) { |n| "user-#{n.to_s.rjust(3, '0')}@icmoc.com" }
     password { 'icmoc-2020-2020' }
     password_confirmation { 'icmoc-2020-2020' }
-    admin   { false }
-    subject { :employee }
     after(:build, &:skip_confirmation!)
   end
 end

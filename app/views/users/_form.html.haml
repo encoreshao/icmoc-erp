@@ -5,6 +5,7 @@
   = f.input :email, required: true
   = f.input :password, required: true, input_html: { autocomplete: '' } if resource.new_record?
   = f.input :subject, as: :radio_buttons, label_html: { class: 'col-sm-3' }, wrapper: :custom_date_select
+  = f.input :status, as: :radio_buttons, label_html: { class: 'col-sm-3' }, wrapper: :custom_date_select
 
   %field.form-group
     %label.roles.required.col-sm-3.control-label= User.human_attribute_name(:roles)

@@ -7,26 +7,22 @@
           %table.table.table-bordered
             %thead
               %tr{role: 'row'}
-                %th= collection.name.safe_constantize.human_attribute_name(:avatar)
                 %th= collection.name.safe_constantize.human_attribute_name(:name)
                 %th= collection.name.safe_constantize.human_attribute_name(:email)
                 %th= collection.name.safe_constantize.human_attribute_name(:subject)
                 %th= collection.name.safe_constantize.human_attribute_name(:position)
                 %th= collection.name.safe_constantize.human_attribute_name(:roles)
-                %th= collection.name.safe_constantize.human_attribute_name(:active)
+                %th= collection.name.safe_constantize.human_attribute_name(:status)
                 %th
             %tbody
               - collection.each do |resource|
                 %tr
-                  %td
-                    - if resource.detail.try(:avatar).present?
-                      %image{ src: resource.detail.avatar.thumb.url }
                   %td= resource.name
                   %td= resource.email
                   %td= resource.subject_text
                   %td= resource.detail.try(:position)
                   %td= resource.role_names
-                  %td= resource.active
+                  %td= resource.status_text
                   %td
                     = render partial: 'shared/options', locals: { resource: resource }
 

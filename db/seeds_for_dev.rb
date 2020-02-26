@@ -9,12 +9,10 @@ Brand.delete_all
   Brand.create(name: name)
 end
 
-phone_prefixes = %w[152 139 138 150 151 137 136]
+phone_prefixes = %w[152 139 138 150 151 137 136 159]
 
 p '> Create users...'
-
 admin_role = Role.order('id ASC').first
-
 (0..rand(10..15)).each do |i|
   name = (i == 0 ? 'Admin' : Faker::Name.name)
 
@@ -23,7 +21,6 @@ admin_role = Role.order('id ASC').first
     password: 'auto-123',
     subject: :employee
   )
-  user.admin = (name == 'Admin')
   user.skip_confirmation!
   user.role_ids = [i == 0 ? admin_role.id : Role.where('id <> ?', admin_role).sample.id]
   user.detail_attributes = {
@@ -38,29 +35,7 @@ admin_role = Role.order('id ASC').first
 end
 
 p '> create companies...'
-[
-  {
-    name: '上海ABB工程有限公司',
-    address: '上海市浦东新区康新公路4528号',
-    telephone: '021 6105 6677',
-    postcode: '201319',
-    contact_person: '李刚',
-    website: 'https://new.abb.com',
-    industry: '自动化',
-    province: Province.find_by(name_en: 'shanghai'),
-    description: '上海ABB工程有限公司是ABB的重要本地企业之一，是ABB在华工业机器人及系统业务（离散自动化与运动控制）、仪器仪表（过程自动化）、变电站自动化系统（电力系统）和集成分析系统 （过程自动化）的主要生产工程基地。上海ABB工程有限公司自2008年起连续三年跻身“中国工业电气100强企业”之列。'
-  },
-  {
-    name: '上海贝特威自动化科技有限公司',
-    address: '上海市闵行区沪闵路3088号北门B幢（沪闵路瓶北路交叉口）',
-    website: 'https://www.shbetterway.com/',
-    telephone: '86-21-64139268',
-    fax: '86-21-64139208',
-    contact_email: 'info@shbetterway.com',
-    industry: '自动化',
-    province: Province.find_by(name_en: 'shanghai'),
-    description: '贝特威自动化，2004年成立于中国上海，是一家集研发、设计、制造、服务于一体，致力于为汽车、汽车零部件、电子、电器等行业提供专业视觉检测设备和解决方案的公司。贝特威自动化以专业的技术、完善的管理，周到的服务为基础'
-  }
-].each do |option|
+file_path = Rails.root.join('spec', 'factories', 'companies', 'companies.yaml')
+YAML.safe_load(File.read(file_path)).each_value do |option|
   Company.create(option)
 end

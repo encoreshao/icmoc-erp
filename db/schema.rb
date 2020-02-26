@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_222_020_648) do
+ActiveRecord::Schema.define(version: 20_200_209_130_238) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -215,27 +215,28 @@ ActiveRecord::Schema.define(version: 20_200_222_020_648) do
   end
 
   create_table 'user_details', force: :cascade do |t|
+    t.bigint 'user_id'
     t.string 'name'
     t.string 'avatar'
     t.string 'address'
     t.string 'mobile_phone'
     t.string 'gender'
     t.string 'position'
-    t.integer 'age'
-    t.date 'birthday'
     t.string 'marriage'
-    t.date 'hiredate'
     t.string 'country'
     t.string 'birthplace'
     t.string 'nationality'
     t.string 'id_card_no'
-    t.bigint 'user_id'
-    t.integer 'theme_id'
     t.string 'locale'
     t.string 'contact_person'
     t.string 'contact_phone'
+    t.date 'birthday'
+    t.integer 'age'
+    t.date 'hiredate'
+    t.bigint 'theme_id'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.index ['theme_id'], name: 'index_user_details_on_theme_id'
     t.index ['user_id'], name: 'index_user_details_on_user_id'
   end
 
@@ -259,9 +260,8 @@ ActiveRecord::Schema.define(version: 20_200_222_020_648) do
     t.datetime 'last_sign_in_at'
     t.inet 'current_sign_in_ip'
     t.inet 'last_sign_in_ip'
-    t.string 'admin'
     t.string 'subject'
-    t.boolean 'active', default: false
+    t.string 'status'
     t.string 'confirmation_token'
     t.datetime 'confirmed_at'
     t.datetime 'confirmation_sent_at'

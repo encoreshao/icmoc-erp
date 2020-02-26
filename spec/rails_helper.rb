@@ -68,4 +68,6 @@ RSpec.configure do |config|
   config.extend ControllerMacros, type: :controller
 
   config.include FactoryBot::Syntax::Methods
+
+  config.raise_errors_for_deprecations!
 end
