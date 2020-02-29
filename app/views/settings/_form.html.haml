@@ -2,7 +2,7 @@
   = render 'form_header'
 
   = f.input :depot_alarm_value, as: :string
-  = f.input :project_payment_mode, collection: Setting.project_payment_mode.values, prompt: true, required: true
-  = f.input :purchase_payment_mode, collection: Setting.purchase_payment_mode.values, prompt: true, required: true
+  = f.input :project_payment_mode, collection: Setting.project_payment_mode.values, as: :radio_buttons, label_html: { class: 'col-sm-3' }, wrapper: :custom_date_select
+  = f.input :purchase_payment_mode, collection: Setting.purchase_payment_mode.values, as: :radio_buttons, label_html: { class: 'col-sm-3' }, wrapper: :custom_date_select
 
   = render partial: 'form_submit', locals: { f: f }

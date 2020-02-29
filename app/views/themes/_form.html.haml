@@ -1,7 +1,7 @@
 = simple_form_for resource, url: url, wrapper: :horizontal_form do |f|
   = render 'form_header'
   = f.input :name, required: true
-  = f.input :appearance, prompt: false
+  = f.input :appearance, as: :radio_buttons, label_html: { class: 'col-sm-3' }, wrapper: :custom_date_select
   = f.input :position, input_html: { value: (resource.new_record? ? Theme.maximum(:position) : resource.position) }
 
   - unless resource.new_record?
