@@ -37,7 +37,7 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 
 # Linked Files & Directories (Default None):
 append :linked_dirs, "log", "bundle", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "vendor/bundle"
-append :linked_files, "config/database.yml", "config/secrets.yml"
+append :linked_files, "config/database.yml", "config/secrets.yml", "config/app_config.yml"
 
 namespace :deploy do
   desc 'Initial Deploy'
