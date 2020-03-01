@@ -24,13 +24,22 @@ end
 
 [
   {
-    password: 'admin',
+    email: 'admin@icmoc.com',
+    password: 'admin-123456',
     subject: :employee,
     role_ids: admin_role.id,
     detail_attributes: detail_attributes('Admin')
   },
   {
-    password: 'user',
+    email: 'user@icmoc.com',
+    password: 'user-123456',
+    subject: :employee,
+    role_ids: Role.where('id <> ?', admin_role).sample.id,
+    detail_attributes: detail_attributes('User')
+  },
+  {
+    email: 'test@icmoc.com',
+    password: 'test-123456',
     subject: :employee,
     role_ids: Role.where('id <> ?', admin_role).sample.id,
     detail_attributes: detail_attributes('User')
