@@ -135,6 +135,9 @@
             .panel-title-box
               %h3= User.model_name.human
               %span
+                = link_to "#{I18n.t("actions.new")}#{User.model_name.human}", new_user_path
+                = ' | '
+                = link_to "#{I18n.t("actions.index")}#{User.model_name.human}", users_path
             %ul.panel-controls{style: 'margin-top: 2px;'}
               %li
                 = link_to "javascript:void(0);", class: 'panel-fullscreen' do
@@ -165,6 +168,9 @@
             .panel-title-box
               %h3= Company.model_name.human
               %span
+                = link_to "#{I18n.t("actions.new")}#{Company.model_name.human}", new_company_path
+                = ' | '
+                = link_to "#{I18n.t("actions.index")}#{Company.model_name.human}", companies_path
             %ul.panel-controls{style: 'margin-top: 2px;'}
               %li
                 = link_to "javascript:void(0);", class: 'panel-fullscreen' do
@@ -196,6 +202,8 @@
               %h3= Project.model_name.human
               %span
                 = link_to "#{I18n.t("actions.new")}#{Project.model_name.human}", new_project_path
+                = ' | '
+                = link_to "#{I18n.t("actions.index")}#{Project.model_name.human}", projects_path
             %ul.panel-controls{style: 'margin-top: 2px;'}
               %li
                 = link_to "javascript:void(0);", class: 'panel-fullscreen' do

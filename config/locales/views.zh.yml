@@ -34,6 +34,7 @@ zh:
     districts: 地区
     themes: 主题列表
   actions:
+    index: 列表
     new: 新建
     add: 添加
     create: 创建
