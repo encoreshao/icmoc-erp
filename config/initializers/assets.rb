@@ -14,4 +14,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
-Rails.application.config.assets.precompile += %w[alert.mp3 fail.mp3]
+Rails.application.config.assets.precompile += %w[
+  alert.mp3 fail.mp3
+  application.css devise.css
+  theme-blue.css theme-brown.css theme-dark.css theme-default.css theme-light.css
+]
