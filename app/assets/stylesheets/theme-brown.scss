@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,500,600,700&subset=latin,latin-ext);
 @import "jquery/jquery-ui.min.css";
 @import "bootstrap/bootstrap.min.css";
 @import "fontawesome/font-awesome.min.css";
@@ -295,7 +294,7 @@ body {
 }
 
 body.page-container-boxed {
-  background: url("backgrounds/wall_1.jpg") left top no-repeat fixed;
+  background: image-url("backgrounds/wall_1.jpg") left top no-repeat fixed;
   padding: 20px 0px;
 }
 
@@ -931,7 +930,7 @@ body.page-container-boxed .page-container {
 .x-navigation.x-navigation-minimized>li.xn-logo>a:first-child {
   padding: 0px;
   width: 50px;
-  background-image: url("logo-small.png");
+  background-image: image-url("logo-small.png");
 }
 
 .x-navigation.x-navigation-minimized .xn-search input {
@@ -4775,7 +4774,7 @@ td.dataTables_empty {
 }
 
 .login-container .login-box .login-logo {
-  background: image-url("logo.png") top center no-repeat;
+  // background: image-url("logo.png") top center no-repeat;
   width: 100%;
   height: 50px;
   float: left;
@@ -4871,7 +4870,7 @@ td.dataTables_empty {
 }
 
 .login-container.lightmode {
-  background: url("backgrounds/wall_1.jpg") left top no-repeat;
+  background: image-url("backgrounds/wall_1.jpg") left top no-repeat;
 }
 
 .login-container.lightmode .login-box .login-body {
@@ -6166,7 +6165,7 @@ td.dataTables_empty {
   padding: 0;
   width: 18px;
   height: 18px;
-  background: url("icheck/grey.png") no-repeat;
+  background: image-url("icheck/grey.png") no-repeat;
   border: none;
   cursor: pointer;
 }

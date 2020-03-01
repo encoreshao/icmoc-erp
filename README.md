@@ -33,3 +33,15 @@ bundle exec rake RAILS_ENV=production restore_database DISABLE_DATABASE_ENVIRONM
 ```
 bundle config --delete without
 ```
+
+### Public folder items not available in production
+
+- Add following line in your app/config/environments/production.rb
+
+```
+config.public_file_server.enabled = true
+
+OR
+
+RAILS_SERVE_STATIC_FILES=true rails s -e production
+```

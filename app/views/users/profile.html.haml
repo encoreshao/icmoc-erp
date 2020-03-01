@@ -14,7 +14,7 @@
                   .col-md-3
                     .form-group
                       .text-center.mbl
-                        - image_url = '/assets/icons/default-user.png'
+                        - image_url = asset_path('icons/default-user.png')
                         - image_url = current_user.detail.avatar.url unless current_user.detail.try(:avatar).blank?
                         %img.img-responsive{ src: image_url }
 
