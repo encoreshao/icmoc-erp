@@ -100,5 +100,5 @@ Rails.application.configure do
 
   config.read_encrypted_secrets = true
 
-  config.action_mailer.default_url_options = { host: "erp.icmoc.com" }
+  config.action_mailer.default_url_options = { host: 'erp.icmoc.com' }
 end
