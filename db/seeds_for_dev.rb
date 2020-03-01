@@ -9,28 +9,35 @@ Brand.delete_all
   Brand.create(name: name)
 end
 
-phone_prefixes = %w[152 139 138 150 151 137 136 159]
-
 p '> Create users...'
 admin_role = Role.order('id ASC').first
-(0..rand(10..15)).each do |i|
-  name = (i == 0 ? 'Admin' : Faker::Name.name)
-
-  user = User.new(
-    email: "user#{i}@#{APP_CONFIG['domain']}",
-    password: 'auto-123',
-    subject: :employee
-  )
-  user.skip_confirmation!
-  user.role_ids = [i == 0 ? admin_role.id : Role.where('id <> ?', admin_role).sample.id]
-  user.detail_attributes = {
+def detail_attributes(name)
+  {
     name: name,
-    mobile_phone: phone_prefixes.sample + rand.to_s[4..11],
+    mobile_phone: %w[152 139 138 150 151 137 136 159].sample + rand.to_s[4..11],
     age: rand(20..29),
     country: '中国',
     theme: Theme.random_theme,
     locale: %i[en zh].sample
   }
+end
+
+[
+  {
+    password: 'admin',
+    subject: :employee,
+    role_ids: admin_role.id,
+    detail_attributes: detail_attributes('Admin')
+  },
+  {
+    password: 'user',
+    subject: :employee,
+    role_ids: Role.where('id <> ?', admin_role).sample.id,
+    detail_attributes: detail_attributes('User')
+  }
+].each do |option|
+  user = User.new(option)
+  user.skip_confirmation!
   user.save!
 end
 

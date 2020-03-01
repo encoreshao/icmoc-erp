@@ -436,13 +436,14 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  listen
   mail_view
   mini_magick
   nested_form
   pg
   pry-rails
   puma
-  rails (~> 5.2.0)
+  rails (~> 5.2.4.1)
   roo
   rspec
   rspec-rails

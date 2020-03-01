@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 5.2.4.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -72,13 +72,14 @@ group :development do
   gem 'zeus'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'listen'
   gem 'web-console'
 
   # Use Capistrano for deployment
   gem 'capistrano',         require: false
-  gem 'capistrano-rvm',     require: false
-  gem 'capistrano-rails',   require: false
   gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-rvm',     require: false
   gem 'capistrano3-puma',   require: false
 end
 

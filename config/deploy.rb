@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.12.0"
+lock '~> 3.12.0'
 
 # Change these
-server 'icmoc.com', part: 22, roles: [:web, :app, :db], primary: true
+server 'icmoc.com', part: 22, roles: %i[web app db], primary: true
 
-set :repo_url,        "https://github.com/encoreshao/icmoc-erp"
+set :repo_url,        'https://github.com/encoreshao/icmoc-erp'
 set :application,     'erp'
 set :rvm_type,        :system
 set :rvm_ruby_version, "2.6.5@#{fetch(:application)}"
 
-set :user,          ENV["CAPISTRANO_USER"] || `whoami`.chop
+set :user,          ENV['CAPISTRANO_USER'] || `whoami`.chop
 set :tmp_dir,       "/home/#{fetch(:user)}/tmp"
 set :format,        :pretty
 set :log_level,     :debug
@@ -21,7 +23,7 @@ set :use_sudo,        false
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/var/www/production/#{fetch(:application)}"
 
-set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa.pub) }
+set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w[~/.ssh/id_rsa.pub] }
 
 # Puma
 set :puma_threads,    [1, 4]
@@ -33,11 +35,11 @@ set :puma_access_log, "#{release_path}/log/puma.error.log"
 set :puma_error_log,  "#{release_path}/log/puma.access.log"
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
-set :puma_init_active_record, true  # Change to false when not using ActiveRecord
+set :puma_init_active_record, true # Change to false when not using ActiveRecord
 
 # Linked Files & Directories (Default None):
-append :linked_dirs, "log", "bundle", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "vendor/bundle"
-append :linked_files, "config/database.yml", "config/secrets.yml", "config/app_config.yml"
+append :linked_dirs, 'log', '.bundle', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'vendor/bundle'
+append :linked_files, 'config/database.yml', 'config/secrets.yml', 'config/app_config.yml'
 
 namespace :deploy do
   desc 'Initial Deploy'
