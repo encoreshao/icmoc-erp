@@ -38,14 +38,13 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true # Change to false when not using ActiveRecord
 
 # Linked Files & Directories (Default None):
-append :linked_dirs, 'log', '.bundle', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'vendor/bundle'
+append :linked_dirs, 'log', '.bundle', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'vendor/bundle', 'public/uploads'
 append :linked_files, 'config/database.yml', 'config/secrets.yml', 'config/app_config.yml'
 
 namespace :deploy do
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
-      before 'deploy:restart', 'puma:start'
       invoke 'deploy'
     end
   end
@@ -53,7 +52,7 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      invoke!("puma:restart")
+      invoke("puma:restart")
     end
   end
 
