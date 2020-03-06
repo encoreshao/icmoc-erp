@@ -9,7 +9,12 @@ body {
 }
 
 .page-container .page-content {
-  background: rgba(255, 255, 255, 0.5) !important;
+  color: rgba(0, 0, 0, .8);
+  background: rgba(255, 255, 255, 0.8) !important;
+}
+
+.login-container.lightmode {
+  background-size: cover;
 }
 
 .horizontal_form {

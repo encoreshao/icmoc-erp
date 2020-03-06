@@ -9,8 +9,8 @@
               %tr{role: 'row'}
                 %th= collection.name.safe_constantize.human_attribute_name(:name)
                 %th= collection.name.safe_constantize.human_attribute_name(:email)
-                %th= collection.name.safe_constantize.human_attribute_name(:subject)
                 %th= collection.name.safe_constantize.human_attribute_name(:position)
+                %th= collection.name.safe_constantize.human_attribute_name(:subject)
                 %th= collection.name.safe_constantize.human_attribute_name(:roles)
                 %th= collection.name.safe_constantize.human_attribute_name(:status)
                 %th
@@ -19,8 +19,8 @@
                 %tr
                   %td= resource.name
                   %td= resource.email
-                  %td= resource.subject_text
                   %td= resource.detail.try(:position)
+                  %td= resource.subject_text
                   %td= resource.role_names
                   %td= resource.status_text
                   %td
