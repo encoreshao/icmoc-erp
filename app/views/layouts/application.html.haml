@@ -9,7 +9,7 @@
     = stylesheet_link_tag  ['theme', current_user.theme_appearance].join('-'), media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
-  %body{style: "background: #0b58a6 url(#{current_user.theme_image_url}) fixed 0 0 no-repeat"}
+  %body{data: { env: Rails.env }, style: "background: #0b58a6 url(#{current_user.theme_image_url}) fixed 0 0 no-repeat"}
     .page-container.page-navigation-top-fixed
       .page-sidebar.page-sidebar-fixed.scroll.mCustomScrollbar._mCS_1.mCS-autoHide
         = render 'sidebar'

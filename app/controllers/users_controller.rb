@@ -9,17 +9,6 @@ class UsersController < BaseController
     end
   end
 
-  def create
-    create!(notice: t('notice_account_created')) { collection_path }
-  end
-
-  def update
-    resource = User.find params[:id]
-    resource.update_attributes(user_params)
-
-    update!(notice: t('notice_account_updated')) { request.referer }
-  end
-
   def disable
     resource = User.find params[:id]
 

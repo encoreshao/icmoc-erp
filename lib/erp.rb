@@ -87,7 +87,7 @@ Erp::AccessControl.map do |resources|
 
   resources.project_module :products do |map_resource|
     map_resource.permission :manage_products,
-                            { products: %i[new create edit update destroy] },
+                            { products: %i[index new create edit update destroy] },
                             require: :member
     map_resource.permission :search_products, { search: :index }, read: true
     map_resource.permission :view_product, { products: [:show] }, read: true

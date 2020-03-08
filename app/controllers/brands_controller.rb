@@ -1,19 +1,6 @@
 # frozen_string_literal: true
 
 class BrandsController < BaseController
-  def create
-    resource = Brand.new(brand_params)
-
-    create! { collection_path }
-  end
-
-  def update
-    resource = Brand.find params[:id]
-    resource.update_attributes(brand_params)
-
-    update! { collection_path }
-  end
-
   protected
 
   def collection

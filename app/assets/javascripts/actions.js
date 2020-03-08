@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+  console.log('%c 免费在线-ERP系统 | ICMOC - icmoc.com ', 'background: green; color: white; font-weight: bold; line-height: 15px; height: 15px;');
+
   /* PROGGRESS START */
   $.mpb("show", { value: [0, 50], speed: 5 });
   /* END PROGGRESS START */
@@ -501,7 +503,6 @@ function eraseCookie(name) {
 }
 
 function x_navigation() {
-
   $(".x-navigation-control").click(function() {
     $(this).parents(".x-navigation").toggleClass("x-navigation-open");
 
@@ -514,8 +515,8 @@ function x_navigation() {
     x_navigation_minimize("close");
   }
 
-  var x = getCookie('icmocerplayout');
-  if (x) {
+  var cookieKey = 'icmoc-' + $('body').data('env') + '-nav';
+  if (getCookie(cookieKey)) {
     $(".page-container").addClass("page-navigation-toggled");
     x_navigation_minimize("close");
   }
@@ -523,11 +524,11 @@ function x_navigation() {
   $(".x-navigation-minimize").click(function() {
 
     if ($(".page-sidebar .x-navigation").hasClass("x-navigation-minimized")) {
-      eraseCookie('icmocerplayout')
+      eraseCookie(cookieKey)
       $(".page-container").removeClass("page-navigation-toggled");
       x_navigation_minimize("open");
     } else {
-      setCookie('icmocerplayout', 'expand', 7);
+      setCookie(cookieKey, 'expand', 7);
       $(".page-container").addClass("page-navigation-toggled");
       x_navigation_minimize("close");
     }

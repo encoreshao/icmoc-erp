@@ -1,19 +1,6 @@
 # frozen_string_literal: true
 
 class ProjectsController < BaseController
-  def create
-    resource = Project.new(project_params)
-
-    create! { collection_path }
-  end
-
-  def update
-    resource = Project.find params[:id]
-    resource.update_attributes(project_params)
-
-    update! { collection_path }
-  end
-
   def close; end
 
   def reopen; end
