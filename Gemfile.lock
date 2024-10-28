@@ -333,8 +333,7 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
-    rexml (3.3.6)
-      strscan
+    rexml (3.3.9)
     rmmseg-cpp-new (0.3.1)
     roo (2.8.3)
       nokogiri (~> 1)
@@ -412,7 +411,6 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     ssrf_filter (1.1.2)
-    strscan (3.1.0)
     temple (0.8.2)
     thor (1.3.2)
     tilt (2.4.0)
